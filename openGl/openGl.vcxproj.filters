@@ -45,6 +45,12 @@
     <ClInclude Include="imGui\imgui_impl_opengl3.h">
       <Filter>imGui</Filter>
     </ClInclude>
+    <ClInclude Include="shaders.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shadersC.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imGui\imgui_tables.cpp">
@@ -68,10 +74,13 @@
     <ClCompile Include="imGui\imgui_impl_opengl3.cpp">
       <Filter>imGui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Cuda_OpenGL_GLFW_glad_test\Cuda_OpenGL_GLFW_glad_test\glad.c">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="glad.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shaders.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
