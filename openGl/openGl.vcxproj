@@ -158,7 +158,7 @@
     <ClInclude Include="imGui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Cuda_OpenGL_GLFW_glad_test\Cuda_OpenGL_GLFW_glad_test\glad.c" />
+    <ClCompile Include="glad.c" />
     <ClCompile Include="imGui\imgui.cpp" />
     <ClCompile Include="imGui\imgui_demo.cpp" />
     <ClCompile Include="imGui\imgui_draw.cpp" />
