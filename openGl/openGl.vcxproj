@@ -157,8 +157,10 @@
     <ClInclude Include="imGui\imstb_textedit.h" />
     <ClInclude Include="imGui\imstb_truetype.h" />
     <ClInclude Include="rendering.hpp" />
+    <ClInclude Include="triangle.hpp" />
     <ClInclude Include="shaders.hpp" />
     <ClInclude Include="shadersC.hpp" />
+    <ClInclude Include="imGuiUi.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c" />
@@ -171,7 +173,9 @@
     <ClCompile Include="imGui\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="rendering.cpp" />
+    <ClCompile Include="triangle.cpp" />
     <ClCompile Include="shaders.cpp" />
+    <ClCompile Include="imGuiUi.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

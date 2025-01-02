@@ -3,23 +3,23 @@
 #define _1180779_RENDERING_
 
 #include "glad/glad.h"
+#include "GLFW/glfw3.h"
+#include "imGui/imgui.h"
+#include <string>
+
 
 class rendering 
 {
 public:
-    rendering();
-    void render(GLint shaderProgram);
+    rendering(std::string windowName = "openGL");
+    ~rendering();
+    void clearColor();
+    void swapBuffers();
+    void initGL();
 
-private:
-    unsigned int VBO;
-    unsigned int VAO;
-
-    float vertices[9] = {
-        -0.5f, -0.5f, 0.0f,
-         0.5f, -0.5f, 0.0f,
-         0.0f,  0.5f, 0.0f
-    };
+    GLFWwindow* window;
+    const char* glsl_version;
+    ImVec4 clear_color = ImVec4(0.f, 0.f, 0.f, 1.00f);
 };
-
 
 #endif
