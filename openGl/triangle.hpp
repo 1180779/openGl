@@ -2,17 +2,17 @@
 #ifndef _1180779_TRIANGLE_
 #define _1180779_TRIANGLE_
 
-#include "glad/glad.h"
+#include "object.hpp"
 
-class triangle 
+class triangle : public object
 {
 public:
     triangle();
-    void render(GLint shaderProgram);
+    virtual void render(GLint shaderProgram) const;
 
 private:
-    unsigned int VBO;
-    unsigned int VAO;
+    GLuint VBO;
+    GLuint VAO;
 
     float vertices[9] = {
         -0.5f, -0.5f, 0.0f,

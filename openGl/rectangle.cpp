@@ -1,9 +1,14 @@
-#include "triangle.hpp"
 
-triangle::triangle()
+#include "rectangle.hpp"
+
+rectangle::rectangle()
 {
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
+
+    glGenBuffers(1, &EBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -13,9 +18,9 @@ triangle::triangle()
     glEnableVertexAttribArray(0);
 }
 
-void triangle::render(GLint shaderProgram) const
+void rectangle::render(GLint shaderProgram) const
 {
     glUseProgram(shaderProgram);
     glBindVertexArray(VAO);
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }

@@ -156,6 +156,8 @@
     <ClInclude Include="imGui\imstb_rectpack.h" />
     <ClInclude Include="imGui\imstb_textedit.h" />
     <ClInclude Include="imGui\imstb_truetype.h" />
+    <ClInclude Include="object.hpp" />
+    <ClInclude Include="rectangle.hpp" />
     <ClInclude Include="rendering.hpp" />
     <ClInclude Include="triangle.hpp" />
     <ClInclude Include="shaders.hpp" />
@@ -172,6 +174,8 @@
     <ClCompile Include="imGui\imgui_tables.cpp" />
     <ClCompile Include="imGui\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="object.cpp" />
+    <ClCompile Include="rectangle.cpp" />
     <ClCompile Include="rendering.cpp" />
     <ClCompile Include="triangle.cpp" />
     <ClCompile Include="shaders.cpp" />

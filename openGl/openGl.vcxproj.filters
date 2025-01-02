@@ -72,6 +72,12 @@
     <ClInclude Include="triangle.hpp">
       <Filter>Header Files\objects</Filter>
     </ClInclude>
+    <ClInclude Include="rectangle.hpp">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="object.hpp">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imGui\imgui_tables.cpp">
@@ -111,6 +117,12 @@
       <Filter>Source Files\rendering</Filter>
     </ClCompile>
     <ClCompile Include="triangle.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="rectangle.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="object.cpp">
       <Filter>Source Files\objects</Filter>
     </ClCompile>
   </ItemGroup>

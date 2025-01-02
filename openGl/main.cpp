@@ -6,6 +6,7 @@
 #include "shadersC.hpp"
 
 #include "triangle.hpp"
+#include "rectangle.hpp"
 
 int main(int, char**)
 {
@@ -16,7 +17,7 @@ int main(int, char**)
     shaders shaders(vertexSS, fragmentSS);
     shaders.createProgram();
 
-    triangle triangle;
+    const object& obj = rectangle();
 
     // Main loop
     while (!glfwWindowShouldClose(render.window))
@@ -43,7 +44,7 @@ int main(int, char**)
         glViewport(0, 0, display_w, display_h);
         render.clearColor();
 
-        triangle.render(shaders.program);
+        obj.render(shaders.program);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         render.swapBuffers();
     }
