@@ -14,11 +14,23 @@ void main()
 const char* fragmentSS = R"(
 #version 330 core
 out vec4 FragColor;
-
 void main()
 {
     FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
 } 
 )";
+
+// --------------------------------------------------
+
+const char* fragmentSS2 = R"(
+#version 330 core
+out vec4 FragColor;
+uniform vec4 ourColor; // we set this variable in the OpenGL code.
+void main()
+{
+    FragColor = ourColor;
+}   
+)";
+
 
 #endif

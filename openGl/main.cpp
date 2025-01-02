@@ -14,12 +14,10 @@ int main(int, char**)
     imGuiUi ui = imGuiUi(render);
     render.initGL();
 
-    shaders shaders(vertexSS, fragmentSS);
+    shaders shaders(vertexSS, fragmentSS2);
     shaders.createProgram();
 
     const object& obj = rectangle();
-
-    render.wireMode();
 
     // Main loop
     while (!glfwWindowShouldClose(render.window))
@@ -38,6 +36,12 @@ int main(int, char**)
 
         ui.newFrame();
         ui.settingsWindow();
+
+        // uniform color
+        float timeValue = glfwGetTime();
+        float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
+        GLint vertexColorLocation = glGetUniformLocation(shaders.program, "ourColor");
+        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 
         // Rendering
         ImGui::Render();
