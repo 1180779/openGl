@@ -7,7 +7,7 @@
 class object 
 {
 public:
-    virtual void render(GLint shaderProgram) const = 0;
+    virtual void render() const = 0;
 };
 
 #endif

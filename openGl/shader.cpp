@@ -1,4 +1,4 @@
-#include "shaders.hpp"
+#include "shader.hpp"
 
 #include <iostream>
 
@@ -11,61 +11,54 @@
 GLuint compileShader(const char* source, GLenum shaderType);
 GLuint linkProgram(GLuint vertexShader, GLuint fragmentShader, GLuint geometryShader = -1);
 
-shaders::shaders()
-{
-    vertexShaderC = nullptr;
-    fragmentShaderC = nullptr;
-    geometryShaderC = nullptr;
-
-    shadersInit();
-}
-
-shaders::shaders(const char* vertexShaderC, const char* fragmentShaderC, const char* geometryShaderC)
+shader::shader(const char* vertexShaderC, const char* fragmentShaderC, const char* geometryShaderC)
 {
     this->vertexShaderC = vertexShaderC;
     this->fragmentShaderC = fragmentShaderC;
     this->geometryShaderC = geometryShaderC;
 
-    shadersInit();
-}
-
-void shaders::shadersInit()
-{
-    vertexShader = invalidGLuint;
-    fragmentShader = invalidGLuint;
-    geometryShader = invalidGLuint;
-
-    program = invalidGLuint;
-}
-
-void shaders::createProgram()
-{
-    if (program != invalidGLuint) {
-        glDeleteProgram(program);
-    }
     vertexShader = ::compileShader(vertexShaderC, GL_VERTEX_SHADER);
     fragmentShader = ::compileShader(fragmentShaderC, GL_FRAGMENT_SHADER);
-    if(geometryShaderC != nullptr)
+    geometryShader = -1;
+    if (geometryShaderC != nullptr)
         geometryShader = ::compileShader(geometryShaderC, GL_GEOMETRY_SHADER);
 
     program = ::linkProgram(vertexShader, fragmentShader, geometryShader);
 
     glDeleteShader(vertexShader);
-    vertexShader = invalidGLuint;
     glDeleteShader(fragmentShader);
-    fragmentShader = invalidGLuint;
-    if (geometryShader != shaders::invalidGLuint) {
+    if (geometryShader != -1) {
         glDeleteShader(geometryShader);
-        geometryShader = invalidGLuint;
     }
 }
 
-void shaders::deleteProgram()
+shader::~shader()
 {
-    if (program == invalidGLuint)
-        return;
     glDeleteProgram(program);
-    program = invalidGLuint;
+}
+
+void shader::use()
+{
+    glUseProgram(program);
+}
+
+void shader::setb(const std::string& name, bool b) const
+{
+    glUniform1i(glGetUniformLocation(program, name.c_str()), (int)b);
+}
+
+void shader::seti(const std::string& name, int v) const
+{
+    glUniform1i(glGetUniformLocation(program, name.c_str()), v);
+}
+void shader::set1f(const std::string& name, float v) const
+{
+    glUniform1f(glGetUniformLocation(program, name.c_str()), v);
+}
+
+void shader::set4f(const std::string& name, float v0, float v1, float v2, float v3) const
+{
+    glUniform4f(glGetUniformLocation(program, name.c_str()), v0, v1, v2, v3);
 }
 
 // ------------------------------------------------
@@ -92,7 +85,7 @@ GLuint linkProgram(GLuint vertexShader, GLuint fragmentShader, GLuint geometrySh
     GLuint program = glCreateProgram();
     glAttachShader(program, vertexShader);
     glAttachShader(program, fragmentShader);
-    if (geometryShader != shaders::invalidGLuint)
+    if (geometryShader != -1)
         glAttachShader(program, geometryShader);
     glLinkProgram(program);
 

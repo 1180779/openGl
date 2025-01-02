@@ -60,7 +60,7 @@
     <ClInclude Include="rendering.hpp">
       <Filter>Header Files\rendering</Filter>
     </ClInclude>
-    <ClInclude Include="shaders.hpp">
+    <ClInclude Include="shader.hpp">
       <Filter>Header Files\rendering</Filter>
     </ClInclude>
     <ClInclude Include="imGuiUi.hpp">
@@ -107,7 +107,7 @@
     <ClCompile Include="rendering.cpp">
       <Filter>Source Files\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="shaders.cpp">
+    <ClCompile Include="shader.cpp">
       <Filter>Source Files\rendering</Filter>
     </ClCompile>
     <ClCompile Include="imGuiUi.cpp">

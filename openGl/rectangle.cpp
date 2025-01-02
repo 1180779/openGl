@@ -18,9 +18,8 @@ rectangle::rectangle()
     glEnableVertexAttribArray(0);
 }
 
-void rectangle::render(GLint shaderProgram) const
+void rectangle::render() const
 {
-    glUseProgram(shaderProgram);
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }

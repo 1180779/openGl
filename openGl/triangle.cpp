@@ -13,9 +13,8 @@ triangle::triangle()
     glEnableVertexAttribArray(0);
 }
 
-void triangle::render(GLint shaderProgram) const
+void triangle::render() const
 {
-    glUseProgram(shaderProgram);
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }

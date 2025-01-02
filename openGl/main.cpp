@@ -2,7 +2,7 @@
 #include "rendering.hpp"
 #include "imGuiUi.hpp"
 
-#include "Shaders.hpp"
+#include "shader.hpp"
 #include "shadersC.hpp"
 
 #include "triangle.hpp"
@@ -14,9 +14,7 @@ int main(int, char**)
     imGuiUi ui = imGuiUi(render);
     render.initGL();
 
-    shaders shaders(vertexSS, fragmentSS2);
-    shaders.createProgram();
-
+    shader sh(vertexSS, fragmentSS2);
     const object& obj = rectangle();
 
     // Main loop
@@ -40,8 +38,8 @@ int main(int, char**)
         // uniform color
         float timeValue = glfwGetTime();
         float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
-        GLint vertexColorLocation = glGetUniformLocation(shaders.program, "ourColor");
-        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+
+        sh.set4f("ourColor", 0.0f, greenValue, 0.0f, 1.0f);
 
         // Rendering
         ImGui::Render();
@@ -50,11 +48,10 @@ int main(int, char**)
         glViewport(0, 0, display_w, display_h);
         render.clearColor();
 
-        obj.render(shaders.program);
+        sh.use();
+        obj.render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         render.swapBuffers();
     }
-
-    shaders.deleteProgram(); 
     return 0;
 }

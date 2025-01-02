@@ -8,7 +8,7 @@ class triangle : public object
 {
 public:
     triangle();
-    virtual void render(GLint shaderProgram) const;
+    virtual void render() const;
 
 private:
     GLuint VBO;

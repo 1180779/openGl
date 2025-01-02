@@ -160,7 +160,7 @@
     <ClInclude Include="rectangle.hpp" />
     <ClInclude Include="rendering.hpp" />
     <ClInclude Include="triangle.hpp" />
-    <ClInclude Include="shaders.hpp" />
+    <ClInclude Include="shader.hpp" />
     <ClInclude Include="shadersC.hpp" />
     <ClInclude Include="imGuiUi.hpp" />
   </ItemGroup>
@@ -178,7 +178,7 @@
     <ClCompile Include="rectangle.cpp" />
     <ClCompile Include="rendering.cpp" />
     <ClCompile Include="triangle.cpp" />
-    <ClCompile Include="shaders.cpp" />
+    <ClCompile Include="shader.cpp" />
     <ClCompile Include="imGuiUi.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

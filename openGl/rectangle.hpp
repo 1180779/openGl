@@ -8,7 +8,7 @@ class rectangle : public object
 {
 public:
     rectangle();
-    virtual void render(GLint shaderProgram) const;
+    virtual void render() const;
 
 private:
     GLuint VBO;
