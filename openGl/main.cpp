@@ -19,6 +19,8 @@ int main(int, char**)
 
     const object& obj = rectangle();
 
+    render.wireMode();
+
     // Main loop
     while (!glfwWindowShouldClose(render.window))
     {

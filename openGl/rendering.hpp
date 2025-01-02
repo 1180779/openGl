@@ -13,6 +13,8 @@ class rendering
 public:
     rendering(std::string windowName = "openGL");
     ~rendering();
+    void wireMode() { glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); }
+    void fillMode() { glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); }
     void clearColor();
     void swapBuffers();
     void initGL();
