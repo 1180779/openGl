@@ -16,6 +16,18 @@
     <Filter Include="imGui">
       <UniqueIdentifier>{67afc762-f1fb-414e-927a-a98c60b50c25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\rendering">
+      <UniqueIdentifier>{2bfc2020-f030-4cf8-8e5a-4e6c3e591981}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rendering">
+      <UniqueIdentifier>{007824b0-bd1e-4fb7-9e6f-1ac3100f13e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\objects">
+      <UniqueIdentifier>{47ca6fb3-fb0f-4a8f-9b72-67af861d8420}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\objects">
+      <UniqueIdentifier>{a2baf1f3-e800-4ef2-bf5a-ca952daa205b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imGui\imgui_impl_opengl3_loader.h">
@@ -45,20 +57,20 @@
     <ClInclude Include="imGui\imgui_impl_opengl3.h">
       <Filter>imGui</Filter>
     </ClInclude>
+    <ClInclude Include="rendering.hpp">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
     <ClInclude Include="shaders.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="shadersC.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="triangle.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\rendering</Filter>
     </ClInclude>
     <ClInclude Include="imGuiUi.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\rendering</Filter>
     </ClInclude>
-    <ClInclude Include="rendering.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="shadersC.hpp">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="triangle.hpp">
+      <Filter>Header Files\objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -86,20 +98,20 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="glad.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="rendering.cpp">
+      <Filter>Source Files\rendering</Filter>
     </ClCompile>
     <ClCompile Include="shaders.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="triangle.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\rendering</Filter>
     </ClCompile>
     <ClCompile Include="imGuiUi.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="rendering.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="glad.c">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="triangle.cpp">
+      <Filter>Source Files\objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
