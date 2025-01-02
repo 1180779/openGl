@@ -9,6 +9,11 @@
 
 #include <GLFW/glfw3.h> // Will drag system OpenGL headers
 
+#include "Shaders.hpp"
+#include "shadersC.hpp"
+
+#include "rendering.hpp"
+
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to maximize ease of testing and compatibility with old VS compilers.
 // To link with VS2010-era libraries, VS2015+ requires linking with legacy_stdio_definitions.lib, which we do using this pragma.
 // Your own project should not be affected, as you are likely to link with a newer binary of GLFW that is adequate for your version of Visual Studio.
@@ -51,11 +56,6 @@ int main(int, char**)
     //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
 #endif
 
-    // ####################################################################################################################################################################################
-    // INITIALIZE AND CONFIGURE
-
-   
-
     // Create window with graphics context
     GLFWwindow* window = glfwCreateWindow(1280, 720, "openGl", nullptr, nullptr);
     if (window == NULL) {
@@ -92,50 +92,16 @@ int main(int, char**)
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
     std::cout << "GLSL Version: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
 
+    // ####################################################################################################################################################################################
+    // INITIALIZE AND CONFIGURE
+
+    shaders shaders(vertexSS, fragmentSS);
+    shaders.createProgram();
+
+    rendering render;
+
+
     ImVec4 clear_color = ImVec4(0.f, 0.f, 0.f, 1.00f);
-    bool startSimulation = false;
-
-    // Configuration loop
-    while (!glfwWindowShouldClose(window) && !startSimulation)
-    {
-        glfwPollEvents();
-        if (glfwGetWindowAttrib(window, GLFW_ICONIFIED) != 0)
-        {
-            ImGui_ImplGlfw_Sleep(10);
-            continue;
-        }
-
-        // Start the Dear ImGui frame
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
-
-        {
-            ImGui::SetNextWindowSize(ImVec2(400, 180));
-            ImGui::Begin("Simulation configuration", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
-
-            ImGui::SetNextItemWidth(150);
-            ImGui::ColorEdit3("Change background", (float*)&clear_color); // Edit 3 floats representing a color
-
-            ImGui::SetNextItemWidth(150);
-            startSimulation = ImGui::Button("Start simulation");
-
-            ImGui::End();
-        }
-
-        // Rendering
-        ImGui::Render();
-        int display_w, display_h;
-        glfwGetFramebufferSize(window, &display_w, &display_h);
-        glViewport(0, 0, display_w, display_h);
-        glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-        glfwSwapBuffers(window);
-    }
-
-    std::cout << "Starting main loop..." << std::endl;
 
     // Main loop
     while (!glfwWindowShouldClose(window))
@@ -176,6 +142,7 @@ int main(int, char**)
         glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w);
         glClear(GL_COLOR_BUFFER_BIT);
 
+        render.render(shaders.program);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         glfwSwapBuffers(window);
     }
@@ -184,6 +151,8 @@ int main(int, char**)
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
+
+    shaders.deleteProgram();
 
     glfwDestroyWindow(window);
     glfwTerminate();

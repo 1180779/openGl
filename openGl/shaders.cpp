@@ -29,6 +29,15 @@ shaders::shaders(const char* vertexShaderC, const char* fragmentShaderC, const c
     shadersInit();
 }
 
+void shaders::shadersInit()
+{
+    vertexShader = invalidGLuint;
+    fragmentShader = invalidGLuint;
+    geometryShader = invalidGLuint;
+
+    program = invalidGLuint;
+}
+
 void shaders::createProgram()
 {
     if (program != invalidGLuint) {
@@ -36,7 +45,8 @@ void shaders::createProgram()
     }
     vertexShader = ::compileShader(vertexShaderC, GL_VERTEX_SHADER);
     fragmentShader = ::compileShader(fragmentShaderC, GL_FRAGMENT_SHADER);
-    geometryShader = ::compileShader(geometryShaderC, GL_GEOMETRY_SHADER);
+    if(geometryShaderC != nullptr)
+        geometryShader = ::compileShader(geometryShaderC, GL_GEOMETRY_SHADER);
 
     program = ::linkProgram(vertexShader, fragmentShader, geometryShader);
 
@@ -44,8 +54,10 @@ void shaders::createProgram()
     vertexShader = invalidGLuint;
     glDeleteShader(fragmentShader);
     fragmentShader = invalidGLuint;
-    glDeleteShader(geometryShader);
-    geometryShader = invalidGLuint;
+    if (geometryShader != shaders::invalidGLuint) {
+        glDeleteShader(geometryShader);
+        geometryShader = invalidGLuint;
+    }
 }
 
 void shaders::deleteProgram()
@@ -53,15 +65,6 @@ void shaders::deleteProgram()
     if (program == invalidGLuint)
         return;
     glDeleteProgram(program);
-    program = invalidGLuint;
-}
-
-void shaders::shadersInit()
-{
-    vertexShader = invalidGLuint;
-    fragmentShader = invalidGLuint;
-    geometryShader = invalidGLuint;
-
     program = invalidGLuint;
 }
 

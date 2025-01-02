@@ -51,6 +51,9 @@
     <ClInclude Include="shadersC.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="rendering.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imGui\imgui_tables.cpp">
@@ -81,6 +84,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="shaders.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

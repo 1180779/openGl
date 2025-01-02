@@ -19,6 +19,8 @@ public:
     const char* fragmentShaderC;
     const char* geometryShaderC;
 
+    GLuint program;
+
 private:
     void shadersInit();
     friend GLuint compileShader(const char* source, GLenum shaderType);
@@ -30,8 +32,6 @@ private:
     GLuint vertexShader;
     GLuint fragmentShader;
     GLuint geometryShader;
-
-    GLuint program;
 };
 
 #endif

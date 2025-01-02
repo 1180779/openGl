@@ -156,6 +156,7 @@
     <ClInclude Include="imGui\imstb_rectpack.h" />
     <ClInclude Include="imGui\imstb_textedit.h" />
     <ClInclude Include="imGui\imstb_truetype.h" />
+    <ClInclude Include="rendering.hpp" />
     <ClInclude Include="shaders.hpp" />
     <ClInclude Include="shadersC.hpp" />
   </ItemGroup>
@@ -169,6 +170,7 @@
     <ClCompile Include="imGui\imgui_tables.cpp" />
     <ClCompile Include="imGui\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="rendering.cpp" />
     <ClCompile Include="shaders.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
