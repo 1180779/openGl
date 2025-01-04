@@ -61,6 +61,11 @@ void shader::set4f(const std::string& name, float v0, float v1, float v2, float 
     glUniform4f(glGetUniformLocation(m_program, name.c_str()), v0, v1, v2, v3);
 }
 
+void shader::setMatrix4fv(const std::string& name, const glm::mat4& trans)
+{
+    glUniformMatrix4fv(glGetUniformLocation(m_program, name.c_str()), 1, GL_FALSE, glm::value_ptr(trans));
+}
+
 // ------------------------------------------------
 // implementation
 

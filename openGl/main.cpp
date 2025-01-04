@@ -9,6 +9,8 @@
 #include "triangle.hpp"
 #include "rectangle.hpp"
 
+#include "transformations.hpp"
+
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
@@ -18,11 +20,17 @@ int main(int, char**)
     imGuiUi ui = imGuiUi(render);
     render.initGL();
 
+    glm::mat4 trans = glm::mat4(1.0f);
+    trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
+    trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
+
     texture t1("textures/woodencontainer.jpg"), t2("textures/awesomeface.png", GL_RGBA);
-    shader sh(vertexSS4, fragmentSS4);
+    shader sh(vertexSS5, fragmentSS4);
     sh.use();
     sh.set1i("texture1", 0);
     sh.set1i("texture2", 1);
+    sh.setMatrix4fv("transform", trans);
+
     const object& obj = rectangle();
 
     // Main loop
