@@ -13,9 +13,9 @@ public:
     int getHeight() { return m_height; }
     int getNrChanngels() { return m_nrChannels; }
 
-    void use();
+    void use(int i = 0);
 
-    texture(std::string source);
+    texture(std::string source, GLenum format = GL_RGB);
 
 private:
     int m_width;

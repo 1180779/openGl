@@ -47,7 +47,7 @@ void shader::setb(const std::string& name, bool b) const
     glUniform1i(glGetUniformLocation(m_program, name.c_str()), (int)b);
 }
 
-void shader::seti(const std::string& name, int v) const
+void shader::set1i(const std::string& name, int v) const
 {
     glUniform1i(glGetUniformLocation(m_program, name.c_str()), v);
 }

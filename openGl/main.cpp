@@ -18,8 +18,11 @@ int main(int, char**)
     imGuiUi ui = imGuiUi(render);
     render.initGL();
 
-    texture t("textures/woodencontainer.jpg");
-    shader sh(vertexSS3, fragmentSS3);
+    texture t1("textures/woodencontainer.jpg"), t2("textures/awesomeface.png", GL_RGBA);
+    shader sh(vertexSS4, fragmentSS4);
+    sh.use();
+    sh.set1i("texture1", 0);
+    sh.set1i("texture2", 1);
     const object& obj = rectangle();
 
     // Main loop
@@ -47,8 +50,12 @@ int main(int, char**)
         glViewport(0, 0, display_w, display_h);
         render.clearColor();
 
-        t.use();
+
+        t1.use();
+        t2.use(1);
+
         sh.use();
+
         obj.render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         render.swapBuffers();
