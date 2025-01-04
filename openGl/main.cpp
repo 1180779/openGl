@@ -41,10 +41,7 @@ int main(int, char**)
     float angle = 50.f;
     for (int i = 0; i < 10; ++i) {
         angle += 50.f;
-        list.addObject(new cube(), 
-            glm::rotate(
-                glm::translate(
-                    glm::mat4(1.0f), cubePositions[i]), glm::radians(angle), glm::vec3(0.f, 1.f, 0.f)));
+        list.addObject(new cube(), cubePositions[i]);
     }
 
     glm::mat4 view = glm::mat4(1.0f);
@@ -92,10 +89,8 @@ int main(int, char**)
         t2.use(1);
         sh.use();
 
-        for (int i = 0; i < list.m_models.size(); ++i) {
-            sh.setMatrix4fv("model", list.m_models[i]);
-            list.m_objs[i]->render();
-        }
+        list.rotate((float)glfwGetTime() * 50.f, glm::vec3(0.f, 0.f, 1.f));
+        list.render(sh);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         render.swapBuffers();
     }
