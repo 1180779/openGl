@@ -19,6 +19,12 @@ class imGuiUi
 public:
     imGuiUi(rendering& rendering);
     ~imGuiUi();
+
+    void styleRounded();
+    void styleSquare();
+    void styleLight();
+    void styleDark();
+
     void settingsWindow();
     void newFrame();
     ImGuiIO& io;

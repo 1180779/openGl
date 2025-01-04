@@ -8,10 +8,6 @@ imGuiUi::imGuiUi(rendering& rendering) : m_rendering(rendering), io((ImGui::Crea
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 
-    // Setup Dear ImGui style
-    ImGui::StyleColorsDark();
-    //ImGui::StyleColorsLight();
-
     // Setup Platform/Renderer backends
     ImGui_ImplGlfw_InitForOpenGL(m_rendering.window, true);
 #ifdef __EMSCRIPTEN__
@@ -25,6 +21,36 @@ imGuiUi::~imGuiUi()
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
+}
+
+void imGuiUi::styleRounded()
+{
+    ImGuiStyle& style = ImGui::GetStyle();
+    style.TabRounding = 8.f;
+    style.FrameRounding = 8.f;
+    style.GrabRounding = 8.f;
+    style.WindowRounding = 8.f;
+    style.PopupRounding = 8.f;
+}
+
+void imGuiUi::styleSquare()
+{
+    ImGuiStyle& style = ImGui::GetStyle();
+    style.TabRounding = 0.f;
+    style.FrameRounding = 0.f;
+    style.GrabRounding = 0.f;
+    style.WindowRounding = 0.f;
+    style.PopupRounding = 0.f;
+}
+
+void imGuiUi::styleLight()
+{
+    ImGui::StyleColorsLight();
+}
+
+void imGuiUi::styleDark()
+{
+    ImGui::StyleColorsDark();
 }
 
 void imGuiUi::settingsWindow()

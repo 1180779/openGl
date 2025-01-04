@@ -16,6 +16,8 @@ int main(int, char**)
 {
     rendering render = rendering();
     imGuiUi ui = imGuiUi(render);
+    ui.styleLight();
+    ui.styleRounded();
     render.initGL();
 
     texture t1("textures/woodencontainer.jpg"), t2("textures/awesomeface.png", GL_RGBA);
@@ -57,7 +59,7 @@ int main(int, char**)
 
         glm::mat4 trans = glm::mat4(1.0f);
         trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
-        trans = glm::rotate(trans, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+        trans = glm::rotate(trans, (float)glfwGetTime(), glm::normalize(glm::vec3(0.0f, 1.0f, 0.0f)));
         sh.setMatrix4fv("transform", trans);
 
         obj.render();
