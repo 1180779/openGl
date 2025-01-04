@@ -1,6 +1,6 @@
 
-#ifndef _SHADER_1180779_
-#define _SHADER_1180779_
+#ifndef U1180779_SHADER_H
+#define U1180779_SHADER_H
 
 #include <glad/glad.h>
 
@@ -25,11 +25,11 @@ public:
     const char* geometryShaderC;
 
 private:
-    GLuint program;
+    GLuint m_program;
 
-    GLuint vertexShader;
-    GLuint fragmentShader;
-    GLuint geometryShader;
+    GLuint m_vertexShader;
+    GLuint m_fragmentShader;
+    GLuint m_geometryShader;
 };
 
 #endif

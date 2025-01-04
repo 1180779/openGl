@@ -1,6 +1,6 @@
 
-#ifndef _1180779_TRIANGLE_
-#define _1180779_TRIANGLE_
+#ifndef U1180779_TRIANGLE_H
+#define U1180779_TRIANGLE_H
 
 #include "object.hpp"
 
@@ -11,10 +11,10 @@ public:
     virtual void render() const;
 
 private:
-    GLuint VBO;
-    GLuint VAO;
+    GLuint m_VBO;
+    GLuint m_VAO;
 
-    float vertices[9] = {
+    float m_vertices[9] = {
         -0.5f, -0.5f, 0.0f,
          0.5f, -0.5f, 0.0f,
          0.0f,  0.5f, 0.0f

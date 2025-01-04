@@ -2,12 +2,12 @@
 
 triangle::triangle()
 {
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
+    glGenVertexArrays(1, &m_VAO);
+    glBindVertexArray(m_VAO);
 
-    glGenBuffers(1, &VBO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glGenBuffers(1, &m_VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(m_vertices), m_vertices, GL_STATIC_DRAW);
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
@@ -15,6 +15,6 @@ triangle::triangle()
 
 void triangle::render() const
 {
-    glBindVertexArray(VAO);
+    glBindVertexArray(m_VAO);
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }

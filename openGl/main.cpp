@@ -4,9 +4,13 @@
 
 #include "shader.hpp"
 #include "shadersC.hpp"
+#include "texture.hpp"
 
 #include "triangle.hpp"
 #include "rectangle.hpp"
+
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 
 int main(int, char**)
 {
@@ -14,7 +18,8 @@ int main(int, char**)
     imGuiUi ui = imGuiUi(render);
     render.initGL();
 
-    shader sh(vertexSS, fragmentSS2);
+    texture t("textures/woodencontainer.jpg");
+    shader sh(vertexSS3, fragmentSS3);
     const object& obj = rectangle();
 
     // Main loop
@@ -35,12 +40,6 @@ int main(int, char**)
         ui.newFrame();
         ui.settingsWindow();
 
-        // uniform color
-        float timeValue = glfwGetTime();
-        float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
-
-        sh.set4f("ourColor", 0.0f, greenValue, 0.0f, 1.0f);
-
         // Rendering
         ImGui::Render();
         int display_w, display_h;
@@ -48,6 +47,7 @@ int main(int, char**)
         glViewport(0, 0, display_w, display_h);
         render.clearColor();
 
+        t.use();
         sh.use();
         obj.render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

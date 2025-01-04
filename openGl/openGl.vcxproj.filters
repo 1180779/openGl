@@ -28,6 +28,9 @@
     <Filter Include="Source Files\objects">
       <UniqueIdentifier>{a2baf1f3-e800-4ef2-bf5a-ca952daa205b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="textures">
+      <UniqueIdentifier>{81ec8556-2e8c-4585-b195-29dec5deec23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imGui\imgui_impl_opengl3_loader.h">
@@ -78,6 +81,12 @@
     <ClInclude Include="object.hpp">
       <Filter>Header Files\objects</Filter>
     </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.hpp">
+      <Filter>textures</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imGui\imgui_tables.cpp">
@@ -124,6 +133,9 @@
     </ClCompile>
     <ClCompile Include="object.cpp">
       <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>textures</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

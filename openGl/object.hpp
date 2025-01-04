@@ -1,6 +1,6 @@
 
-#ifndef _1180779_OBJECT_
-#define _1180779_OBJECT_
+#ifndef U1180779_OBJECT_H
+#define U1180779_OBJECT_H
 
 #include "glad/glad.h"
 

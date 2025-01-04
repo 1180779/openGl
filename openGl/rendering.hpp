@@ -1,6 +1,6 @@
 
-#ifndef _1180779_RENDERING_
-#define _1180779_RENDERING_
+#ifndef U1180779_RENDERING_H
+#define U1180779_RENDERING_H
 
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"

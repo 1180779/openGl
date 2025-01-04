@@ -159,6 +159,8 @@
     <ClInclude Include="object.hpp" />
     <ClInclude Include="rectangle.hpp" />
     <ClInclude Include="rendering.hpp" />
+    <ClInclude Include="stb_image.h" />
+    <ClInclude Include="texture.hpp" />
     <ClInclude Include="triangle.hpp" />
     <ClInclude Include="shader.hpp" />
     <ClInclude Include="shadersC.hpp" />
@@ -177,6 +179,7 @@
     <ClCompile Include="object.cpp" />
     <ClCompile Include="rectangle.cpp" />
     <ClCompile Include="rendering.cpp" />
+    <ClCompile Include="texture.cpp" />
     <ClCompile Include="triangle.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="imGuiUi.cpp" />
