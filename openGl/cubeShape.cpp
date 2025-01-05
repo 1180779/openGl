@@ -1,5 +1,5 @@
 
-#include "cube.hpp"
+#include "cubeShape.hpp"
 
 cube::cube()
 {

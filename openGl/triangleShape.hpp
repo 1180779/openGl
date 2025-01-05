@@ -2,12 +2,12 @@
 #ifndef U1180779_TRIANGLE_H
 #define U1180779_TRIANGLE_H
 
-#include "object.hpp"
+#include "objectShape.hpp"
 
-class triangle : public object
+class triangleShape : public objectShape
 {
 public:
-    triangle();
+    triangleShape();
     virtual void render() const;
 
 private:

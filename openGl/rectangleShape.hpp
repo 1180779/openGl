@@ -2,9 +2,9 @@
 #ifndef U1180779_RECTANGLE_H
 #define U1180779_RECTANGLE_H
 
-#include "object.hpp"
+#include "objectShape.hpp"
 
-class rectangle : public object
+class rectangle : public objectShape
 {
 public:
     rectangle();

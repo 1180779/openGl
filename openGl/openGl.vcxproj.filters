@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -16,20 +8,26 @@
     <Filter Include="imGui">
       <UniqueIdentifier>{67afc762-f1fb-414e-927a-a98c60b50c25}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\rendering">
-      <UniqueIdentifier>{2bfc2020-f030-4cf8-8e5a-4e6c3e591981}</UniqueIdentifier>
+    <Filter Include="source">
+      <UniqueIdentifier>{5c6930a6-bc8a-45cb-9c15-0329907cfee9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\rendering">
-      <UniqueIdentifier>{007824b0-bd1e-4fb7-9e6f-1ac3100f13e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\objects">
-      <UniqueIdentifier>{47ca6fb3-fb0f-4a8f-9b72-67af861d8420}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\objects">
+    <Filter Include="source\objects">
       <UniqueIdentifier>{a2baf1f3-e800-4ef2-bf5a-ca952daa205b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="textures">
+    <Filter Include="source\objects\lists">
+      <UniqueIdentifier>{0ea689db-1381-4cfe-872b-81d74c932c80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\rendering">
+      <UniqueIdentifier>{007824b0-bd1e-4fb7-9e6f-1ac3100f13e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\textures">
       <UniqueIdentifier>{81ec8556-2e8c-4585-b195-29dec5deec23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\rendering\global">
+      <UniqueIdentifier>{374f8c9a-13b5-488a-8c06-18b9bf753e08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\objects\shapes">
+      <UniqueIdentifier>{11681e88-0c14-4fac-90b6-f9d3e149ba3f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -60,38 +58,38 @@
     <ClInclude Include="imGui\imgui_impl_opengl3.h">
       <Filter>imGui</Filter>
     </ClInclude>
-    <ClInclude Include="rendering.hpp">
-      <Filter>Header Files\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="shader.hpp">
-      <Filter>Header Files\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="imGuiUi.hpp">
-      <Filter>Header Files\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="shadersC.hpp">
-      <Filter>Header Files\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="triangle.hpp">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="rectangle.hpp">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="object.hpp">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
     <ClInclude Include="stb_image.h">
-      <Filter>textures</Filter>
+      <Filter>source\textures</Filter>
     </ClInclude>
     <ClInclude Include="texture.hpp">
-      <Filter>textures</Filter>
+      <Filter>source\textures</Filter>
     </ClInclude>
-    <ClInclude Include="cube.hpp">
-      <Filter>Header Files\objects</Filter>
+    <ClInclude Include="shader.hpp">
+      <Filter>source\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="shadersC.hpp">
+      <Filter>source\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="cubeShape.hpp">
+      <Filter>source\objects\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="objectShape.hpp">
+      <Filter>source\objects\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="rectangleShape.hpp">
+      <Filter>source\objects\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="triangleShape.hpp">
+      <Filter>source\objects\shapes</Filter>
     </ClInclude>
     <ClInclude Include="objectList.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>source\objects\lists</Filter>
+    </ClInclude>
+    <ClInclude Include="imGuiUi.hpp">
+      <Filter>source\rendering\global</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering.hpp">
+      <Filter>source\rendering\global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -116,38 +114,38 @@
     <ClCompile Include="imGui\imgui_impl_opengl3.cpp">
       <Filter>imGui</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="rendering.cpp">
-      <Filter>Source Files\rendering</Filter>
-    </ClCompile>
     <ClCompile Include="shader.cpp">
-      <Filter>Source Files\rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="imGuiUi.cpp">
-      <Filter>Source Files\rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="glad.c">
-      <Filter>Source Files\rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="triangle.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="rectangle.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="object.cpp">
-      <Filter>Source Files\objects</Filter>
+      <Filter>source\rendering</Filter>
     </ClCompile>
     <ClCompile Include="texture.cpp">
-      <Filter>textures</Filter>
+      <Filter>source\textures</Filter>
     </ClCompile>
-    <ClCompile Include="cube.cpp">
-      <Filter>Source Files\objects</Filter>
+    <ClCompile Include="main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="cubeShape.cpp">
+      <Filter>source\objects\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="objectShape.cpp">
+      <Filter>source\objects\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="rectangleShape.cpp">
+      <Filter>source\objects\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="triangleShape.cpp">
+      <Filter>source\objects\shapes</Filter>
     </ClCompile>
     <ClCompile Include="objectList.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>source\objects\lists</Filter>
+    </ClCompile>
+    <ClCompile Include="imGuiUi.cpp">
+      <Filter>source\rendering\global</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering.cpp">
+      <Filter>source\rendering\global</Filter>
+    </ClCompile>
+    <ClCompile Include="glad.c">
+      <Filter>source\rendering\global</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

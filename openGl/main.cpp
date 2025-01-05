@@ -8,9 +8,9 @@
 
 #include "objectList.hpp"
 
-#include "triangle.hpp"
-#include "rectangle.hpp"
-#include "cube.hpp"
+#include "triangleShape.hpp"
+#include "rectangleShape.hpp"
+#include "cubeShape.hpp"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -41,7 +41,9 @@ int main(int, char**)
     float angle = 50.f;
     for (int i = 0; i < 10; ++i) {
         angle += 50.f;
-        list.addObject(new cube(), cubePositions[i]);
+        objectShape* obj = new cube();
+        obj->translate(cubePositions[i]);
+        list.addObject(obj);
     }
 
     glm::mat4 view = glm::mat4(1.0f);
@@ -89,6 +91,8 @@ int main(int, char**)
         t2.use(1);
         sh.use();
 
+        list.reset();
+        //list.translate(glm::vec3(1.f, 1.f, -20.f));
         list.rotate((float)glfwGetTime() * 50.f, glm::vec3(0.f, 0.f, 1.f));
         list.render(sh);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

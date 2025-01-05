@@ -2,9 +2,9 @@
 #ifndef U1180779_CUBE_H
 #define U1180779_CUBE_H
 
-#include "object.hpp"
+#include "objectShape.hpp"
 
-class cube : public object
+class cube : public objectShape
 {
 public:
     cube();

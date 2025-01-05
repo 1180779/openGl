@@ -147,7 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="cube.hpp" />
+    <ClInclude Include="cubeShape.hpp" />
     <ClInclude Include="imGui\imconfig.h" />
     <ClInclude Include="imGui\imgui.h" />
     <ClInclude Include="imGui\imgui_impl_glfw.h" />
@@ -157,19 +157,19 @@
     <ClInclude Include="imGui\imstb_rectpack.h" />
     <ClInclude Include="imGui\imstb_textedit.h" />
     <ClInclude Include="imGui\imstb_truetype.h" />
-    <ClInclude Include="object.hpp" />
+    <ClInclude Include="objectShape.hpp" />
     <ClInclude Include="objectList.hpp" />
-    <ClInclude Include="rectangle.hpp" />
+    <ClInclude Include="rectangleShape.hpp" />
     <ClInclude Include="rendering.hpp" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="texture.hpp" />
-    <ClInclude Include="triangle.hpp" />
+    <ClInclude Include="triangleShape.hpp" />
     <ClInclude Include="shader.hpp" />
     <ClInclude Include="shadersC.hpp" />
     <ClInclude Include="imGuiUi.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cube.cpp" />
+    <ClCompile Include="cubeShape.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="imGui\imgui.cpp" />
     <ClCompile Include="imGui\imgui_demo.cpp" />
@@ -179,12 +179,12 @@
     <ClCompile Include="imGui\imgui_tables.cpp" />
     <ClCompile Include="imGui\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="object.cpp" />
+    <ClCompile Include="objectShape.cpp" />
     <ClCompile Include="objectList.cpp" />
-    <ClCompile Include="rectangle.cpp" />
+    <ClCompile Include="rectangleShape.cpp" />
     <ClCompile Include="rendering.cpp" />
     <ClCompile Include="texture.cpp" />
-    <ClCompile Include="triangle.cpp" />
+    <ClCompile Include="triangleShape.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="imGuiUi.cpp" />
   </ItemGroup>

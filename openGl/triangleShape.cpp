@@ -1,6 +1,6 @@
-#include "triangle.hpp"
+#include "triangleShape.hpp"
 
-triangle::triangle()
+triangleShape::triangleShape()
 {
     glGenVertexArrays(1, &m_VAO);
     glBindVertexArray(m_VAO);
@@ -13,7 +13,7 @@ triangle::triangle()
     glEnableVertexAttribArray(0);
 }
 
-void triangle::render() const
+void triangleShape::render() const
 {
     glBindVertexArray(m_VAO);
     glDrawArrays(GL_TRIANGLES, 0, 3);
