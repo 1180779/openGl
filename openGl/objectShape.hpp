@@ -22,6 +22,11 @@ public:
         m_modelTrans = glm::rotate(m_modelTrans, glm::radians(angle), v); 
         return *this;
     }
+    virtual objectShape& scale(const glm::vec3& v)
+    {
+        m_modelTrans = glm::scale(m_modelTrans, v);
+        return *this;
+    }
 
 private:
     const static glm::mat4 m_model;

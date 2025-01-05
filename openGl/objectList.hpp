@@ -28,6 +28,11 @@ public:
         m_trans = glm::rotate(m_trans, glm::radians(angle), glm::normalize(v));
         return *this;
     }
+    virtual objectList& scale(const glm::vec3& v)
+    {
+        m_trans = glm::scale(m_trans, v);
+        return *this;
+    }
 
     void render(shader& sh, std::string name = "model");
 

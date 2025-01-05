@@ -42,7 +42,7 @@ int main(int, char**)
     for (int i = 0; i < 10; ++i) {
         angle += 50.f;
         objectShape* obj = new cube();
-        obj->translate(cubePositions[i]);
+        obj->translate(cubePositions[i]).scale(cubePositions[i]);
         list.addObject(obj);
     }
 
@@ -92,8 +92,8 @@ int main(int, char**)
         sh.use();
 
         list.reset();
-        //list.translate(glm::vec3(1.f, 1.f, -20.f));
-        list.rotate((float)glfwGetTime() * 50.f, glm::vec3(0.f, 0.f, 1.f));
+        //list.scale(glm::vec3(1.0f, 1.0f, 1.f));
+        //list.rotate((float)glfwGetTime() * 50.f, glm::vec3(0.f, 0.f, 1.f));
         list.render(sh);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         render.swapBuffers();
