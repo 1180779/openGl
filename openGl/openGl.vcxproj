@@ -189,7 +189,7 @@
     <ClCompile Include="imGuiUi.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="readme.MD" />
+    <None Include="..\readme.MD" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

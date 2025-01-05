@@ -149,6 +149,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="readme.MD" />
+    <None Include="..\readme.MD" />
   </ItemGroup>
 </Project>
