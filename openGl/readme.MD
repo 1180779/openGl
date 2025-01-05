@@ -13,3 +13,6 @@ Learning openGL by following the [learnopengl](https://learnopengl.com/) site.
 - [x] Coordinate Systems
 - [ ] Camera
 
+## Licensing
+
+
