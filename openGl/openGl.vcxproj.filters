@@ -148,4 +148,7 @@
       <Filter>source\rendering\global</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.MD" />
+  </ItemGroup>
 </Project>
