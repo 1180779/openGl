@@ -42,12 +42,15 @@ int main(int, char**)
     for (int i = 0; i < 10; ++i) {
         angle += 50.f;
         objectShape* obj = new cube();
-        obj->translate(cubePositions[i]).scale(cubePositions[i]);
+        obj->translate(cubePositions[i]);
         list.addObject(obj);
     }
 
     glm::mat4 view = glm::mat4(1.0f);
-    view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+    view = glm::lookAt(
+        glm::vec3(0.0f, 0.0f, 3.0f),
+        glm::vec3(0.0f, 0.0f, 0.0f),
+        glm::vec3(0.0f, 1.0f, 0.0f));
 
     glm::mat4 projection;
     projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
@@ -57,8 +60,6 @@ int main(int, char**)
     sh.use();
     sh.set1i("texture1", 0);
     sh.set1i("texture2", 1);
-
-    sh.setMatrix4fv("view", view);
     sh.setMatrix4fv("projection", projection);
 
     // Main loop
@@ -90,10 +91,12 @@ int main(int, char**)
         t1.use();
         t2.use(1);
         sh.use();
+        const float radius = 10.0f;
+        float camX = sin(glfwGetTime()) * radius;
+        float camZ = cos(glfwGetTime()) * radius;
+        view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+        sh.setMatrix4fv("view", view);
 
-        list.reset();
-        //list.scale(glm::vec3(1.0f, 1.0f, 1.f));
-        //list.rotate((float)glfwGetTime() * 50.f, glm::vec3(0.f, 0.f, 1.f));
         list.render(sh);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         render.swapBuffers();
