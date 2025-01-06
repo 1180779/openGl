@@ -29,6 +29,9 @@
     <Filter Include="source\objects\shapes">
       <UniqueIdentifier>{11681e88-0c14-4fac-90b6-f9d3e149ba3f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\objects\camera">
+      <UniqueIdentifier>{7e573c77-643b-4f3b-bc67-74494f9ce982}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imGui\imgui_impl_opengl3_loader.h">
@@ -91,6 +94,7 @@
     <ClInclude Include="rendering.hpp">
       <Filter>source\rendering\global</Filter>
     </ClInclude>
+    <ClInclude Include="camera.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imGui\imgui_tables.cpp">
@@ -146,6 +150,9 @@
     </ClCompile>
     <ClCompile Include="glad.c">
       <Filter>source\rendering\global</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>source\objects\camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

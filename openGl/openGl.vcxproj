@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="camera.hpp" />
     <ClInclude Include="cubeShape.hpp" />
     <ClInclude Include="imGui\imconfig.h" />
     <ClInclude Include="imGui\imgui.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="imGuiUi.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="camera.cpp" />
     <ClCompile Include="cubeShape.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="imGui\imgui.cpp" />

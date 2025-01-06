@@ -13,8 +13,13 @@ class rendering
 public:
     rendering(std::string windowName = "openGL");
     ~rendering();
+
     void wireMode() { glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); }
     void fillMode() { glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); }
+
+    rendering& measureDeltaTime();
+    float deltaTime() const { return m_deltaTime; }
+
     void clearColor();
     void swapBuffers();
     void initGL();
@@ -22,6 +27,11 @@ public:
     GLFWwindow* window;
     const char* glsl_version;
     ImVec4 clear_color = ImVec4(0.f, 0.f, 0.f, 1.00f);
+
+private:
+    float m_currFrame = 0.f;
+    float m_lastFrame = 0.f;
+    float m_deltaTime = 0.f;
 };
 
 #endif

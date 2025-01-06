@@ -53,6 +53,14 @@ rendering::~rendering()
     glfwTerminate();
 }
 
+rendering& rendering::measureDeltaTime()
+{
+    m_currFrame = glfwGetTime();
+    m_deltaTime = m_currFrame - m_lastFrame;
+    m_lastFrame = m_currFrame;
+    return *this;
+}
+
 void rendering::clearColor()
 {
     glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w);

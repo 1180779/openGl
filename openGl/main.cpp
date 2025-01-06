@@ -5,6 +5,7 @@
 #include "shader.hpp"
 #include "shadersC.hpp"
 #include "texture.hpp"
+#include "camera.hpp"
 
 #include "objectList.hpp"
 
@@ -46,11 +47,11 @@ int main(int, char**)
         list.addObject(obj);
     }
 
-    glm::mat4 view = glm::mat4(1.0f);
-    view = glm::lookAt(
-        glm::vec3(0.0f, 0.0f, 3.0f),
-        glm::vec3(0.0f, 0.0f, 0.0f),
-        glm::vec3(0.0f, 1.0f, 0.0f));
+    glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+    glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+
+    camera cam(render);
 
     glm::mat4 projection;
     projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
@@ -65,6 +66,8 @@ int main(int, char**)
     // Main loop
     while (!glfwWindowShouldClose(render.window))
     {
+        render.measureDeltaTime();
+        cam.processInput();
         // Poll and handle events (inputs, window resize, etc.)
         // You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if dear imgui wants to use your inputs.
         // - When io.WantCaptureMouse is true, do not dispatch mouse input data to your main application, or clear/overwrite your copy of the mouse data.
@@ -91,11 +94,7 @@ int main(int, char**)
         t1.use();
         t2.use(1);
         sh.use();
-        const float radius = 10.0f;
-        float camX = sin(glfwGetTime()) * radius;
-        float camZ = cos(glfwGetTime()) * radius;
-        view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
-        sh.setMatrix4fv("view", view);
+        cam.use(sh);
 
         list.render(sh);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
