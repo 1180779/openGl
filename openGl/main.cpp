@@ -52,17 +52,13 @@ int main(int, char**)
     camera cam(render);
     cam.setCurrent();
     camera::disableCursor(render);
-    camera::setCursorCallback(render);
-
-    glm::mat4 projection;
-    projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+    camera::setCallbacks(render);
 
     texture t1("textures/woodencontainer.jpg"), t2("textures/awesomeface.png", GL_RGBA);
     shader sh(vertexSS7, fragmentSS7);
     sh.use();
     sh.set1i("texture1", 0);
     sh.set1i("texture2", 1);
-    sh.setMatrix4fv("projection", projection);
 
     // Main loop
     while (!glfwWindowShouldClose(render.window))

@@ -9,9 +9,9 @@
 class texture 
 {
 public:
-    int getWidth() { return m_width; }
-    int getHeight() { return m_height; }
-    int getNrChanngels() { return m_nrChannels; }
+    int width() { return m_width; }
+    int height() { return m_height; }
+    int nrChanngels() { return m_nrChannels; }
 
     void use(int i = 0);
 

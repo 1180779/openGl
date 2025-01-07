@@ -20,9 +20,6 @@
     <Filter Include="source\rendering">
       <UniqueIdentifier>{007824b0-bd1e-4fb7-9e6f-1ac3100f13e2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\textures">
-      <UniqueIdentifier>{81ec8556-2e8c-4585-b195-29dec5deec23}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source\rendering\global">
       <UniqueIdentifier>{374f8c9a-13b5-488a-8c06-18b9bf753e08}</UniqueIdentifier>
     </Filter>
@@ -61,12 +58,6 @@
     <ClInclude Include="imGui\imgui_impl_opengl3.h">
       <Filter>imGui</Filter>
     </ClInclude>
-    <ClInclude Include="stb_image.h">
-      <Filter>source\textures</Filter>
-    </ClInclude>
-    <ClInclude Include="texture.hpp">
-      <Filter>source\textures</Filter>
-    </ClInclude>
     <ClInclude Include="shader.hpp">
       <Filter>source\rendering</Filter>
     </ClInclude>
@@ -97,6 +88,12 @@
     <ClInclude Include="camera.hpp">
       <Filter>source\objects\camera</Filter>
     </ClInclude>
+    <ClInclude Include="texture.hpp">
+      <Filter>source\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>source\rendering\global</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imGui\imgui_tables.cpp">
@@ -122,9 +119,6 @@
     </ClCompile>
     <ClCompile Include="shader.cpp">
       <Filter>source\rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="texture.cpp">
-      <Filter>source\textures</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>source</Filter>
@@ -155,6 +149,9 @@
     </ClCompile>
     <ClCompile Include="camera.cpp">
       <Filter>source\objects\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>source\rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
