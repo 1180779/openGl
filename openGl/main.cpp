@@ -7,7 +7,9 @@
 #include "texture.hpp"
 #include "camera.hpp"
 
+#include "camera.hpp"
 #include "objectList.hpp"
+
 
 #include "triangleShape.hpp"
 #include "rectangleShape.hpp"
@@ -47,11 +49,10 @@ int main(int, char**)
         list.addObject(obj);
     }
 
-    glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
-    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-    glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
-
     camera cam(render);
+    cam.setCurrent();
+    camera::disableCursor(render);
+    camera::setCursorCallback(render);
 
     glm::mat4 projection;
     projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
@@ -66,6 +67,9 @@ int main(int, char**)
     // Main loop
     while (!glfwWindowShouldClose(render.window))
     {
+        if (glfwGetKey(render.window, GLFW_KEY_ESCAPE)) {
+            glfwSetWindowShouldClose(render.window, GL_TRUE);
+        }
         render.measureDeltaTime();
         cam.processInput();
         // Poll and handle events (inputs, window resize, etc.)

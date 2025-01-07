@@ -94,7 +94,9 @@
     <ClInclude Include="rendering.hpp">
       <Filter>source\rendering\global</Filter>
     </ClInclude>
-    <ClInclude Include="camera.hpp" />
+    <ClInclude Include="camera.hpp">
+      <Filter>source\objects\camera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imGui\imgui_tables.cpp">
