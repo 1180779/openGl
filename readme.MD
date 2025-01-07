@@ -11,10 +11,22 @@ Learning openGL by following the [learnopengl](https://learnopengl.com/) site.
 - [x] Textures
 - [x] Transformations
 - [x] Coordinate Systems
-- [ ] Camera
+- [x] Camera
+
+### Lightning
+- [ ] Colors
+- [ ] Basic Lighting
+- [ ] Materials
+- [ ] Lighting maps
+- [ ] Light casters
+- [ ] Multiple lights
 
 ## Screenshots
-![image](/ss/ss1.png)
+![image](./ss/ss1.png)
+
+![image](./ss/ss2.png)
+
+![image](./ss/ss3.png)
 
 ## Libraries
 - [glfw](https://github.com/glfw/glfw)
