@@ -158,13 +158,13 @@
     <ClInclude Include="imGui\imstb_rectpack.h" />
     <ClInclude Include="imGui\imstb_textedit.h" />
     <ClInclude Include="imGui\imstb_truetype.h" />
+    <ClInclude Include="lightSource.hpp" />
+    <ClInclude Include="material.hpp" />
     <ClInclude Include="objectShape.hpp" />
     <ClInclude Include="objectList.hpp" />
-    <ClInclude Include="rectangleShape.hpp" />
     <ClInclude Include="rendering.hpp" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="texture.hpp" />
-    <ClInclude Include="triangleShape.hpp" />
     <ClInclude Include="shader.hpp" />
     <ClInclude Include="shadersC.hpp" />
     <ClInclude Include="imGuiUi.hpp" />
@@ -180,13 +180,13 @@
     <ClCompile Include="imGui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="imGui\imgui_tables.cpp" />
     <ClCompile Include="imGui\imgui_widgets.cpp" />
+    <ClCompile Include="lightSource.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="material.cpp" />
     <ClCompile Include="objectShape.cpp" />
     <ClCompile Include="objectList.cpp" />
-    <ClCompile Include="rectangleShape.cpp" />
     <ClCompile Include="rendering.cpp" />
     <ClCompile Include="texture.cpp" />
-    <ClCompile Include="triangleShape.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="imGuiUi.cpp" />
   </ItemGroup>

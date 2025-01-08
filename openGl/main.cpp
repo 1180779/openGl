@@ -6,13 +6,9 @@
 #include "shadersC.hpp"
 #include "texture.hpp"
 #include "camera.hpp"
-
-#include "camera.hpp"
 #include "objectList.hpp"
+#include "lightSource.hpp"
 
-
-#include "triangleShape.hpp"
-#include "rectangleShape.hpp"
 #include "cubeShape.hpp"
 
 #define STB_IMAGE_IMPLEMENTATION
@@ -27,7 +23,12 @@ int main(int, char**)
     render.initGL();
     glEnable(GL_DEPTH_TEST);
 
-    objectList list;
+    shader sh(vertexSS, fragmentSS);
+    objectList list(sh);
+
+    lightSource light;
+    light.setPos(glm::vec3(-5.0f, 3.0f, -7.5f));
+
     glm::vec3 cubePositions[10] = {
         glm::vec3(0.0f,  0.0f,  0.0f),
         glm::vec3(2.0f,  5.0f, -15.0f),
@@ -44,8 +45,9 @@ int main(int, char**)
     float angle = 50.f;
     for (int i = 0; i < 10; ++i) {
         angle += 50.f;
-        objectShape* obj = new cube();
-        obj->translate(cubePositions[i]);
+        objectShape* obj = new cubeShape();
+        obj->m_material = material::copper;
+        obj->m_pos = cubePositions[i];
         list.addObject(obj);
     }
 
@@ -53,12 +55,6 @@ int main(int, char**)
     cam.setCurrent();
     camera::disableCursor(render);
     camera::setCallbacks(render);
-
-    texture t1("textures/woodencontainer.jpg"), t2("textures/awesomeface.png", GL_RGBA);
-    shader sh(vertexSS7, fragmentSS7);
-    sh.use();
-    sh.set1i("texture1", 0);
-    sh.set1i("texture2", 1);
 
     // Main loop
     while (!glfwWindowShouldClose(render.window))
@@ -91,12 +87,8 @@ int main(int, char**)
         render.clearColor();
         glClear(GL_DEPTH_BUFFER_BIT);
 
-        t1.use();
-        t2.use(1);
-        sh.use();
-        cam.use(sh);
-
-        list.render(sh);
+        list.render(cam, light);
+        light.render(cam);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         render.swapBuffers();
     }

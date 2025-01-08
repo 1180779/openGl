@@ -7,194 +7,69 @@
 // --------------------------------------------------
 // basic shaders
 
-const char* vertexSS = R"(
+const char* vertexSS = R"( 
 #version 330 core
 layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aNormal;
+
+out vec3 P;  
+out vec3 normal;  
+
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 projection;
 
 void main()
 {
-    gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
-};
-)";
-
-const char* fragmentSS = R"(
-#version 330 core
-
-out vec4 FragColor;
-
-void main()
-{
-    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+    gl_Position = projection * view * model * vec4(aPos, 1.0);
+    P = vec3(model * vec4(aPos, 1.0));
+    normal = aNormal;
 } 
 )";
 
-// --------------------------------------------------
-// uniform color
-
-const char* fragmentSS2 = R"(
+const char* fragmentSS = R"( 
 #version 330 core
+
+struct Material {
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+    float shininess;
+}; 
+
+struct Light {
+    vec3 pos;
+    vec3 color;
+    float ambient;
+    float diffuse;
+    float specular;
+};
+
 out vec4 FragColor;
 
-uniform vec4 ourColor; // we set this variable in the OpenGL code.
-
-void main()
-{
-    FragColor = ourColor;
-}   
-)";
-
-// --------------------------------------------------
-// texture
-
-const char* vertexSS3 = R"( 
-#version 330 core
-layout (location = 0) in vec3 aPos;
-layout (location = 1) in vec3 aColor;
-layout (location = 2) in vec2 aTexCoord;
-
-out vec3 ourColor;
-out vec2 TexCoord;
-
-void main()
-{
-    gl_Position = vec4(aPos, 1.0);
-    ourColor = aColor;
-    TexCoord = aTexCoord;
-}
-)";
-
-const char* fragmentSS3 = R"( 
-#version 330 core
-out vec4 FragColor;
+in vec3 normal;
+in vec3 P;
   
-in vec3 ourColor;
-in vec2 TexCoord;
+uniform Material material;
+uniform Light light;
 
-uniform sampler2D ourTexture;
-
-void main()
-{
-    FragColor = texture(ourTexture, TexCoord) * vec4(ourColor, 1.0);  
-}
-)";
-
-// --------------------------------------------------
-// blending 2 textures
-
-const char* vertexSS4 = R"( 
-#version 330 core
-layout (location = 0) in vec3 aPos;
-layout (location = 1) in vec3 aColor;
-layout (location = 2) in vec2 aTexCoord;
-
-out vec3 ourColor;
-out vec2 TexCoord;
+uniform vec3 viewPos;
 
 void main()
 {
-    gl_Position = vec4(aPos, 1.0);
-    ourColor = aColor;
-    TexCoord = aTexCoord;
+    vec3 N = normalize(normal);
+    vec3 L = normalize(light.pos - P);  
+    vec3 V = normalize(viewPos - P);
+    vec3 R = reflect(-L, N);
+
+    vec3 ambient = light.ambient * material.ambient; 
+    vec3 diffuse = light.diffuse * max(dot(N, L), 0.0) * material.diffuse;
+    vec3 specular = light.specular * pow(max(dot(V, R), 0.0), material.shininess) * material.specular;
+
+    vec3 result = ambient + (diffuse + specular) * light.color;
+
+    FragColor = vec4(result, 1.0);
 }
 )";
-
-const char* fragmentSS4 = R"( 
-#version 330 core
-out vec4 FragColor;
-  
-in vec3 ourColor;
-in vec2 TexCoord;
-
-uniform sampler2D texture1;
-uniform sampler2D texture2;
-
-void main()
-{
-    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);  
-}
-)";
-
-// --------------------------------------------------
-// transformations
-
-const char* vertexSS5 = R"( 
-#version 330 core
-layout (location = 0) in vec3 aPos;
-layout (location = 1) in vec3 aColor;
-layout (location = 2) in vec2 aTexCoord;
-
-out vec3 ourColor;
-out vec2 TexCoord;
-
-uniform mat4 transform;
-
-void main()
-{
-    gl_Position = transform * vec4(aPos, 1.0f);
-    ourColor = aColor;
-    TexCoord = aTexCoord;
-}
-)";
-
-// --------------------------------------------------
-// coordinate systems
-
-const char* vertexSS6 = R"( 
-#version 330 core
-layout (location = 0) in vec3 aPos;
-layout (location = 1) in vec3 aColor;
-layout (location = 2) in vec2 aTexCoord;
-
-out vec3 ourColor;
-out vec2 TexCoord;
-
-uniform mat4 model;
-uniform mat4 view;
-uniform mat4 projection;
-
-void main()
-{
-    gl_Position = projection * view * model * vec4(aPos, 1.0f);
-    ourColor = aColor;
-    TexCoord = aTexCoord;
-}
-)";
-
-// --------------------------------------------------
-// cube
-
-const char* vertexSS7 = R"( 
-#version 330 core
-layout (location = 0) in vec3 aPos;
-layout (location = 1) in vec2 aTexCoord;
-
-out vec2 TexCoord;
-
-uniform mat4 model;
-uniform mat4 view;
-uniform mat4 projection;
-
-void main()
-{
-    gl_Position = projection * view * model * vec4(aPos, 1.0f);
-    TexCoord = aTexCoord;
-}
-)";
-
-const char* fragmentSS7 = R"( 
-#version 330 core
-out vec4 FragColor;
-
-in vec2 TexCoord;
-
-uniform sampler2D texture1;
-uniform sampler2D texture2;
-
-void main()
-{
-    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);  
-}
-)";
-
 
 #endif

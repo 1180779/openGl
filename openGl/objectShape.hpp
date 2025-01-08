@@ -6,31 +6,32 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+#include "shader.hpp"
+#include "material.hpp"
+
 class objectShape
 {
 public:
-    virtual void render() const = 0;
-    virtual glm::mat4 model() { return m_modelTrans; }
-    virtual void reset() { m_modelTrans = m_model; }
-    virtual objectShape& translate(const glm::vec3& v) 
-    {
-        m_modelTrans = glm::translate(m_modelTrans, v); 
-        return *this;
-    }
-    virtual objectShape& rotate(const float angle, const glm::vec3& v)
-    {
-        m_modelTrans = glm::rotate(m_modelTrans, glm::radians(angle), v); 
-        return *this;
-    }
-    virtual objectShape& scale(const glm::vec3& v)
-    {
-        m_modelTrans = glm::scale(m_modelTrans, v);
-        return *this;
-    }
+    virtual void render(shader& sh) const;
+
+    glm::mat4 model() const; /* model matrix */
+    glm::mat4 normalMatrix() const; /* matrix for normal vectors */
+
+    /* position variables */
+
+    glm::vec3 m_pos = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec3 m_scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    float m_pitch = 0.0f;
+    float m_yaw = 0.0f;
+    float m_roll = 0.0f;
+
+    material m_material = material::copper;
+
+protected:
+    static const char* s_colorShaderName;
 
 private:
-    const static glm::mat4 m_model;
-    glm::mat4 m_modelTrans = glm::mat4(1.0f);
+    static const glm::mat4 s_model;
 };
 
 #endif

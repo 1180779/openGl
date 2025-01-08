@@ -35,9 +35,9 @@ public:
 
 private:
     const rendering& m_render;
-    glm::vec3 m_cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
-    glm::vec3 m_cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-    glm::vec3 m_cameraUp = glm::vec3(0.f, 1.f, 0.f);
+    glm::vec3 m_pos = glm::vec3(0.0f, 0.0f, 3.0f);
+    glm::vec3 m_front = glm::vec3(0.0f, 0.0f, -1.0f);
+    glm::vec3 m_up = glm::vec3(0.f, 1.f, 0.f);
     glm::vec3 m_direction = glm::vec3(1.0f, 1.0f, 1.0f);
 
     friend void mouseCallback(GLFWwindow* window, double xpos, double ypos);
