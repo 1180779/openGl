@@ -2,39 +2,39 @@
 #ifndef U1180779_CAMERA_H
 #define U1180779_CAMERA_H
 
+#include "glad/glad.h"
+#include "GLFW/glfw3.h"
+
 #include "shader.hpp"
-#include "rendering.hpp"
 #include <glm/glm.hpp>
 
 class camera 
 {
 public:
-    /* sets window input mode to cursor disabled */
-    static void disableCursor(const rendering& render);
-    
-    /* sets cursor callback */
-    static void setCallbacks(const rendering& render);
 
     /* set mouse movement to modify this cameras yaw and pitch */
     void setCurrent();
-    camera(const rendering& render, float speed = 2.f, float yaw = -90.f,
+    camera(float speed = 2.f, float yaw = -90.f,
         float pitchMax = 89.f, float pitchMin = -89.f, 
         float fovMin = 1.0f, float fovMax = 45.0f)
-        : m_render(render), m_cameraSpeed(speed), m_yaw(yaw),
+        : m_cameraSpeed(speed), m_yaw(yaw),
         m_pitchMax(pitchMax), m_pitchMin(pitchMin), 
         m_fovMax(fovMax), m_fovMin(fovMin) 
     {
         m_fov = m_fovMax;
     }
 
+    inline glm::vec3 getPos() const { return m_pos; }
+
     /* process input */
-    camera& processInput();
+    void processInput(GLFWwindow* window, float dt);
 
     /* set 4f matrix with name in the shader */
-    camera& use(shader& sh, const std::string& nameView = "view", const std::string& nameProj = "projection");
+    void use(const shader& sh, 
+        const std::string& nameView = "view", 
+        const std::string& nameProj = "projection") const;
 
 private:
-    const rendering& m_render;
     glm::vec3 m_pos = glm::vec3(0.0f, 0.0f, 3.0f);
     glm::vec3 m_front = glm::vec3(0.0f, 0.0f, -1.0f);
     glm::vec3 m_up = glm::vec3(0.f, 1.f, 0.f);
@@ -55,10 +55,10 @@ private:
     float m_fovMin;
 };
 
-static camera* currentCamera = nullptr;
-static float lastX = 400, lastY = 300;
-static void mouseCallback(GLFWwindow* window, double xpos, double ypos);
-static void scrollCallback(GLFWwindow* window, double xoffset, double yoffset);
+extern camera* currentCamera;
+extern float lastX, lastY;
+void mouseCallback(GLFWwindow* window, double xpos, double ypos);
+void scrollCallback(GLFWwindow* window, double xoffset, double yoffset);
 
 
 #endif

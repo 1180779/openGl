@@ -1,3 +1,4 @@
+
 #include "lightManager.hpp"
 
 void lightManager::addPointLight(const lightPoint& light)
@@ -17,7 +18,7 @@ void lightManager::addDirectionalLight(const lightDirectional& light)
     m_directionalLights.push_back(light);
 }
 
-void lightManager::setForShader(shader& sh) const
+void lightManager::setForShader(const shader& sh) const
 {
     for(int i = 0; i < m_directionalLights.size(); ++i) 
     {
@@ -35,7 +36,7 @@ void lightManager::setForShader(shader& sh) const
     }
 }
 
-void lightManager::render(camera& cam)
+void lightManager::render(const camera& cam) const
 {
     for (int i = 0; i < m_directionalLights.size(); ++i)
     {

@@ -1,7 +1,9 @@
 
 #include "lightSpotlight.hpp"
 
-void lightSpotlight::setForShader(shader& sh, const std::string& structShName) const
+void lightSpotlight::setForShader(
+    const shader& sh, 
+    const std::string& structShName) const
 {
     lightSource::setForShader(sh, structShName);
     sh.set3f(structShName + ".direction", -m_direction);

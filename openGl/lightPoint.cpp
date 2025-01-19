@@ -1,6 +1,8 @@
 #include "lightPoint.hpp"
 
-void lightPoint::setForShader(shader& sh, const std::string& structShName) const
+void lightPoint::setForShader(
+    const shader& sh, 
+    const std::string& structShName) const
 {
     lightSource::setForShader(sh, structShName);
     sh.set1f(structShName + ".constant", m_constant);

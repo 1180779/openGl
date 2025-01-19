@@ -26,7 +26,10 @@ public:
     virtual objectList& rotate(const float angle, const glm::vec3& v);
     virtual objectList& scale(const glm::vec3& v);
 
-    void render(camera& cam, lightManager& lightMan, std::string name = "model");
+    void render(
+        const camera& cam, 
+        const lightManager& lightMan, 
+        const std::string name = "model") const;
 
     shader& m_sh;
     std::vector<objectShape*> m_objs;

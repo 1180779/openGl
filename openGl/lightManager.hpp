@@ -8,6 +8,7 @@
 
 #include "camera.hpp"
 #include <vector>
+#include <string>
 
 class lightManager 
 {
@@ -16,8 +17,8 @@ public:
     void addSpotlight(const lightSpotlight& light);
     void addDirectionalLight(const lightDirectional& light);
 
-    void setForShader(shader& sh) const;
-    void render(camera& cam);
+    void setForShader(const shader& sh) const;
+    void render(const camera& cam) const;
 
     std::vector<lightPoint> m_pointLights;
     std::vector<lightSpotlight> m_spotlights;

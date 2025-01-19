@@ -16,7 +16,7 @@ public:
     shader(const char* vertexShaderC, const char* fragmentShaderC, const char* geometryShaderC = nullptr);
     ~shader();
 
-    void use();
+    void use() const;
 
     void setb(const std::string& name, bool v) const;
     void set1i(const std::string& name, int v) const;

@@ -7,7 +7,9 @@
 class lightPoint : public lightSource 
 {
 public:
-    void setForShader(shader& sh, const std::string& structShName) const override;
+    void setForShader(
+        const shader& sh, 
+        const std::string& structShName) const override;
     // virtual void render(camera& cam) const {} /* same as in lightSource */
     
     /* atteniuation */

@@ -12,8 +12,12 @@ public:
         glm::vec3 diffuse = glm::vec3(1.0f, 1.0f, 1.0f), 
         glm::vec3 specular = glm::vec3(1.0f, 1.0f, 1.0f));
     
-    virtual void setForShader(shader& sh, const std::string& structShName) const;
-    virtual void render(camera& cam) const { } /* implement down in hierarchy */
+    virtual void setForShader(
+        const shader& sh, 
+        const std::string& structShName) const;
+
+    /* implement down in hierarchy */
+    virtual void render(const camera& cam) const { } 
 
     glm::vec3 m_ambient;
     glm::vec3 m_diffuse;

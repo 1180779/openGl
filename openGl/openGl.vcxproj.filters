@@ -11,32 +11,44 @@
     <Filter Include="source">
       <UniqueIdentifier>{5c6930a6-bc8a-45cb-9c15-0329907cfee9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\objects">
-      <UniqueIdentifier>{a2baf1f3-e800-4ef2-bf5a-ca952daa205b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\objects\lists">
-      <UniqueIdentifier>{0ea689db-1381-4cfe-872b-81d74c932c80}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source\rendering">
       <UniqueIdentifier>{007824b0-bd1e-4fb7-9e6f-1ac3100f13e2}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\rendering\global">
       <UniqueIdentifier>{374f8c9a-13b5-488a-8c06-18b9bf753e08}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\objects\shapes">
+    <Filter Include="source\views">
+      <UniqueIdentifier>{e05cbaa4-9b7d-429a-8afa-87daba2d5ddc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\views\sceneView">
+      <UniqueIdentifier>{1d73b21f-8130-4e42-832d-00c741b66b10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\views\sceneView\subViews">
+      <UniqueIdentifier>{d01f2810-060c-4cc7-9722-d89821182601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\views\sceneView\subViews\uiView">
+      <UniqueIdentifier>{06fb8c3e-045a-412b-9389-8375203a5edc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\views\sceneView\subViews\cameraView">
+      <UniqueIdentifier>{8c44a479-e839-49ee-9a0d-f81091f08dcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\views\sceneView\scene">
+      <UniqueIdentifier>{a2baf1f3-e800-4ef2-bf5a-ca952daa205b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\views\sceneView\scene\lists">
+      <UniqueIdentifier>{0ea689db-1381-4cfe-872b-81d74c932c80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\views\sceneView\scene\shapes">
       <UniqueIdentifier>{11681e88-0c14-4fac-90b6-f9d3e149ba3f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\objects\camera">
+    <Filter Include="source\views\sceneView\scene\camera">
       <UniqueIdentifier>{7e573c77-643b-4f3b-bc67-74494f9ce982}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\objects\light">
+    <Filter Include="source\views\sceneView\scene\light">
       <UniqueIdentifier>{b3a34610-80f1-41b8-90c8-4a98598363ba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\objects\light\lightTypes">
+    <Filter Include="source\views\sceneView\scene\light\lightTypes">
       <UniqueIdentifier>{31881e34-921a-4b5f-9cc5-fd5f639ad662}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\scene">
-      <UniqueIdentifier>{a533bebe-948a-4232-a683-f48b53e08ea5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -74,22 +86,16 @@
       <Filter>source\rendering</Filter>
     </ClInclude>
     <ClInclude Include="cubeShape.hpp">
-      <Filter>source\objects\shapes</Filter>
+      <Filter>source\views\sceneView\scene\shapes</Filter>
     </ClInclude>
     <ClInclude Include="objectShape.hpp">
-      <Filter>source\objects\shapes</Filter>
+      <Filter>source\views\sceneView\scene\shapes</Filter>
     </ClInclude>
     <ClInclude Include="objectList.hpp">
-      <Filter>source\objects\lists</Filter>
-    </ClInclude>
-    <ClInclude Include="imGuiUi.hpp">
-      <Filter>source\rendering\global</Filter>
-    </ClInclude>
-    <ClInclude Include="rendering.hpp">
-      <Filter>source\rendering\global</Filter>
+      <Filter>source\views\sceneView\scene\lists</Filter>
     </ClInclude>
     <ClInclude Include="camera.hpp">
-      <Filter>source\objects\camera</Filter>
+      <Filter>source\views\sceneView\scene\camera</Filter>
     </ClInclude>
     <ClInclude Include="texture.hpp">
       <Filter>source\rendering</Filter>
@@ -98,28 +104,58 @@
       <Filter>source\rendering\global</Filter>
     </ClInclude>
     <ClInclude Include="lightBase.hpp">
-      <Filter>source\objects\light\lightTypes</Filter>
+      <Filter>source\views\sceneView\scene\light\lightTypes</Filter>
     </ClInclude>
     <ClInclude Include="lightDirectional.hpp">
-      <Filter>source\objects\light\lightTypes</Filter>
+      <Filter>source\views\sceneView\scene\light\lightTypes</Filter>
     </ClInclude>
     <ClInclude Include="lightPoint.hpp">
-      <Filter>source\objects\light\lightTypes</Filter>
+      <Filter>source\views\sceneView\scene\light\lightTypes</Filter>
     </ClInclude>
     <ClInclude Include="lightSource.hpp">
-      <Filter>source\objects\light\lightTypes</Filter>
+      <Filter>source\views\sceneView\scene\light\lightTypes</Filter>
     </ClInclude>
     <ClInclude Include="lightSpotlight.hpp">
-      <Filter>source\objects\light\lightTypes</Filter>
+      <Filter>source\views\sceneView\scene\light\lightTypes</Filter>
     </ClInclude>
     <ClInclude Include="material.hpp">
-      <Filter>source\objects\shapes</Filter>
+      <Filter>source\views\sceneView\scene\shapes</Filter>
     </ClInclude>
     <ClInclude Include="lightManager.hpp">
-      <Filter>source\objects\light</Filter>
+      <Filter>source\views\sceneView\scene\light</Filter>
     </ClInclude>
-    <ClInclude Include="scene.hpp">
-      <Filter>source\scene</Filter>
+    <ClInclude Include="application.hpp">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="view.hpp">
+      <Filter>source\views</Filter>
+    </ClInclude>
+    <ClInclude Include="sceneView.hpp">
+      <Filter>source\views\sceneView</Filter>
+    </ClInclude>
+    <ClInclude Include="dataTypes.hpp">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="window.hpp">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="deltaTime.hpp">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="keyBinds.hpp">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uiView.hpp">
+      <Filter>source\views\sceneView\subViews\uiView</Filter>
+    </ClInclude>
+    <ClInclude Include="cameraView.hpp">
+      <Filter>source\views\sceneView\subViews\cameraView</Filter>
+    </ClInclude>
+    <ClInclude Include="sceneManager.hpp">
+      <Filter>source\views\sceneView\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="subView.hpp">
+      <Filter>source\views</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -151,52 +187,64 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="cubeShape.cpp">
-      <Filter>source\objects\shapes</Filter>
+      <Filter>source\views\sceneView\scene\shapes</Filter>
     </ClCompile>
     <ClCompile Include="objectShape.cpp">
-      <Filter>source\objects\shapes</Filter>
+      <Filter>source\views\sceneView\scene\shapes</Filter>
     </ClCompile>
     <ClCompile Include="objectList.cpp">
-      <Filter>source\objects\lists</Filter>
-    </ClCompile>
-    <ClCompile Include="imGuiUi.cpp">
-      <Filter>source\rendering\global</Filter>
-    </ClCompile>
-    <ClCompile Include="rendering.cpp">
-      <Filter>source\rendering\global</Filter>
+      <Filter>source\views\sceneView\scene\lists</Filter>
     </ClCompile>
     <ClCompile Include="glad.c">
       <Filter>source\rendering\global</Filter>
     </ClCompile>
     <ClCompile Include="camera.cpp">
-      <Filter>source\objects\camera</Filter>
+      <Filter>source\views\sceneView\scene\camera</Filter>
     </ClCompile>
     <ClCompile Include="texture.cpp">
       <Filter>source\rendering</Filter>
     </ClCompile>
     <ClCompile Include="lightBase.cpp">
-      <Filter>source\objects\light\lightTypes</Filter>
+      <Filter>source\views\sceneView\scene\light\lightTypes</Filter>
     </ClCompile>
     <ClCompile Include="lightDirectional.cpp">
-      <Filter>source\objects\light\lightTypes</Filter>
+      <Filter>source\views\sceneView\scene\light\lightTypes</Filter>
     </ClCompile>
     <ClCompile Include="lightPoint.cpp">
-      <Filter>source\objects\light\lightTypes</Filter>
+      <Filter>source\views\sceneView\scene\light\lightTypes</Filter>
     </ClCompile>
     <ClCompile Include="lightSource.cpp">
-      <Filter>source\objects\light\lightTypes</Filter>
+      <Filter>source\views\sceneView\scene\light\lightTypes</Filter>
     </ClCompile>
     <ClCompile Include="lightSpotlight.cpp">
-      <Filter>source\objects\light\lightTypes</Filter>
+      <Filter>source\views\sceneView\scene\light\lightTypes</Filter>
     </ClCompile>
     <ClCompile Include="material.cpp">
-      <Filter>source\objects\shapes</Filter>
+      <Filter>source\views\sceneView\scene\shapes</Filter>
     </ClCompile>
     <ClCompile Include="lightManager.cpp">
-      <Filter>source\objects\light</Filter>
+      <Filter>source\views\sceneView\scene\light</Filter>
     </ClCompile>
-    <ClCompile Include="scene.cpp">
-      <Filter>source\scene</Filter>
+    <ClCompile Include="application.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="shadersC.cpp">
+      <Filter>source\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="sceneView.cpp">
+      <Filter>source\views\sceneView</Filter>
+    </ClCompile>
+    <ClCompile Include="deltaTime.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uiView.cpp">
+      <Filter>source\views\sceneView\subViews\uiView</Filter>
+    </ClCompile>
+    <ClCompile Include="cameraView.cpp">
+      <Filter>source\views\sceneView\subViews\cameraView</Filter>
+    </ClCompile>
+    <ClCompile Include="sceneManager.cpp">
+      <Filter>source\views\sceneView\scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

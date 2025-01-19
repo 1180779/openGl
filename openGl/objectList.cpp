@@ -36,7 +36,10 @@ objectList& objectList::scale(const glm::vec3& v)
     return *this;
 }
 
-void objectList::render(camera& cam, lightManager& lightMan, std::string modelName)
+void objectList::render(
+    const camera& cam, 
+    const lightManager& lightMan, 
+    const std::string modelName) const
 {
     cam.use(m_sh);
     lightMan.setForShader(m_sh);

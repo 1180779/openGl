@@ -6,7 +6,7 @@ float lightBase::s_ambient = 0.2f;
 lightBase::lightBase(glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular)
     : m_ambient(ambient), m_diffuse(diffuse), m_specular(specular) { }
 
-void lightBase::setForShader(shader& sh, const std::string& structShName) const
+void lightBase::setForShader(const shader& sh, const std::string& structShName) const
 {
     sh.use();
     sh.set3f(structShName + ".ambient", m_ambient);

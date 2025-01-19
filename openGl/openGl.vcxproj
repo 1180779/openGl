@@ -147,8 +147,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="application.hpp" />
     <ClInclude Include="camera.hpp" />
+    <ClInclude Include="cameraView.hpp" />
     <ClInclude Include="cubeShape.hpp" />
+    <ClInclude Include="dataTypes.hpp" />
+    <ClInclude Include="deltaTime.hpp" />
     <ClInclude Include="imGui\imconfig.h" />
     <ClInclude Include="imGui\imgui.h" />
     <ClInclude Include="imGui\imgui_impl_glfw.h" />
@@ -158,6 +162,7 @@
     <ClInclude Include="imGui\imstb_rectpack.h" />
     <ClInclude Include="imGui\imstb_textedit.h" />
     <ClInclude Include="imGui\imstb_truetype.h" />
+    <ClInclude Include="keyBinds.hpp" />
     <ClInclude Include="lightBase.hpp" />
     <ClInclude Include="lightManager.hpp" />
     <ClInclude Include="lightPoint.hpp" />
@@ -167,17 +172,23 @@
     <ClInclude Include="material.hpp" />
     <ClInclude Include="objectShape.hpp" />
     <ClInclude Include="objectList.hpp" />
-    <ClInclude Include="rendering.hpp" />
-    <ClInclude Include="scene.hpp" />
+    <ClInclude Include="sceneManager.hpp" />
+    <ClInclude Include="sceneView.hpp" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="subView.hpp" />
     <ClInclude Include="texture.hpp" />
     <ClInclude Include="shader.hpp" />
     <ClInclude Include="shadersC.hpp" />
-    <ClInclude Include="imGuiUi.hpp" />
+    <ClInclude Include="uiView.hpp" />
+    <ClInclude Include="view.hpp" />
+    <ClInclude Include="window.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="application.cpp" />
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="cameraView.cpp" />
     <ClCompile Include="cubeShape.cpp" />
+    <ClCompile Include="deltaTime.cpp" />
     <ClCompile Include="lightBase.cpp" />
     <ClCompile Include="lightDirectional.cpp" />
     <ClCompile Include="glad.c" />
@@ -196,11 +207,12 @@
     <ClCompile Include="material.cpp" />
     <ClCompile Include="objectShape.cpp" />
     <ClCompile Include="objectList.cpp" />
-    <ClCompile Include="rendering.cpp" />
-    <ClCompile Include="scene.cpp" />
+    <ClCompile Include="sceneManager.cpp" />
+    <ClCompile Include="sceneView.cpp" />
+    <ClCompile Include="shadersC.cpp" />
     <ClCompile Include="texture.cpp" />
     <ClCompile Include="shader.cpp" />
-    <ClCompile Include="imGuiUi.cpp" />
+    <ClCompile Include="uiView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\readme.MD" />
