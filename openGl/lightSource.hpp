@@ -7,7 +7,7 @@
 #include "cubeShape.hpp"
 #include "camera.hpp"
 
-class lightSource : lightBase
+class lightSource : public lightBase
 {
 public:
     lightSource(const glm::vec3& color = glm::vec3(1.0f, 1.0f, 1.0f));

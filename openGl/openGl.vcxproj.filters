@@ -97,10 +97,13 @@
     <ClInclude Include="material.hpp">
       <Filter>source\objects\light</Filter>
     </ClInclude>
-    <ClInclude Include="lightDirectional.hpp">
+    <ClInclude Include="lightBase.hpp">
       <Filter>source\objects\light</Filter>
     </ClInclude>
-    <ClInclude Include="lightBase.hpp">
+    <ClInclude Include="lightPoint.hpp">
+      <Filter>source\objects\light</Filter>
+    </ClInclude>
+    <ClInclude Include="lightDirectional.hpp">
       <Filter>source\objects\light</Filter>
     </ClInclude>
   </ItemGroup>
@@ -166,6 +169,9 @@
       <Filter>source\objects\light</Filter>
     </ClCompile>
     <ClCompile Include="lightBase.cpp">
+      <Filter>source\objects\light</Filter>
+    </ClCompile>
+    <ClCompile Include="lightPoint.cpp">
       <Filter>source\objects\light</Filter>
     </ClCompile>
   </ItemGroup>

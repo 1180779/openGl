@@ -1,5 +1,6 @@
-#include "objectList.hpp"
+
 #include <glm/gtc/matrix_transform.hpp>
+#include "objectList.hpp"
 
 objectList::objectList(shader& sh) : m_sh(sh) { }
 
@@ -34,7 +35,7 @@ objectList& objectList::scale(const glm::vec3& v)
     return *this;
 }
 
-void objectList::render(camera& cam, lightSource& light, std::string modelName)
+void objectList::render(camera& cam, lightBase& light, std::string modelName)
 {
     cam.use(m_sh);
     light.setForShader(m_sh);

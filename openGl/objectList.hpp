@@ -9,7 +9,7 @@
 #include <string>
 
 #include "camera.hpp"
-#include "lightSource.hpp"
+#include "lightBase.hpp"
 
 class objectList 
 {
@@ -24,7 +24,7 @@ public:
     virtual objectList& rotate(const float angle, const glm::vec3& v);
     virtual objectList& scale(const glm::vec3& v);
 
-    void render(camera& cam, lightSource& light, std::string name = "model");
+    void render(camera& cam, lightBase& light, std::string name = "model");
 
     shader& m_sh;
     std::vector<objectShape*> m_objs;

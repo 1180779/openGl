@@ -7,7 +7,10 @@
 #include "texture.hpp"
 #include "camera.hpp"
 #include "objectList.hpp"
+
 #include "lightSource.hpp"
+#include "lightDirectional.hpp"
+#include "lightPoint.hpp"
 
 #include "cubeShape.hpp"
 
@@ -23,11 +26,13 @@ int main(int, char**)
     render.initGL();
     glEnable(GL_DEPTH_TEST);
 
-    shader sh(vertexSS, fragmentSS);
+    shader sh(vertexSS, fragmentSPointS);
     objectList list(sh);
 
-    lightSource light;
-    light.setPos(glm::vec3(-5.0f, 3.0f, -7.5f));
+    lightPoint lightPoint;
+    lightPoint.setPos(glm::vec3(-1.0f, 3.0f, -7.5f));
+    lightBase& light = lightPoint;
+    //light.setPos(glm::vec3(-5.0f, 3.0f, -7.5f));
 
     glm::vec3 cubePositions[10] = {
         glm::vec3(0.0f,  0.0f,  0.0f),
