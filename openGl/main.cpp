@@ -11,6 +11,7 @@
 #include "lightSource.hpp"
 #include "lightDirectional.hpp"
 #include "lightPoint.hpp"
+#include "lightSpotlight.hpp"
 
 #include "cubeShape.hpp"
 
@@ -26,11 +27,12 @@ int main(int, char**)
     render.initGL();
     glEnable(GL_DEPTH_TEST);
 
-    shader sh(vertexSS, fragmentSPointS);
+    shader sh(vertexSS, fragmentSSpotlightS);
     objectList list(sh);
 
-    lightPoint lightPoint;
-    lightPoint.setPos(glm::vec3(-1.0f, 3.0f, -7.5f));
+    lightSpotlight lightPoint;
+    lightPoint.setPos(glm::vec3(0.0f, 0.0f, 3.0f));
+    lightPoint.m_direction = glm::vec3(0.0f, 0.0f, -1.0f);
     lightBase& light = lightPoint;
     //light.setPos(glm::vec3(-5.0f, 3.0f, -7.5f));
 

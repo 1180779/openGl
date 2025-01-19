@@ -162,6 +162,7 @@
     <ClInclude Include="lightPoint.hpp" />
     <ClInclude Include="lightSource.hpp" />
     <ClInclude Include="lightDirectional.hpp" />
+    <ClInclude Include="lightSpotlight.hpp" />
     <ClInclude Include="material.hpp" />
     <ClInclude Include="objectShape.hpp" />
     <ClInclude Include="objectList.hpp" />
@@ -187,6 +188,7 @@
     <ClCompile Include="imGui\imgui_widgets.cpp" />
     <ClCompile Include="lightPoint.cpp" />
     <ClCompile Include="lightSource.cpp" />
+    <ClCompile Include="lightSpotlight.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="material.cpp" />
     <ClCompile Include="objectShape.cpp" />
