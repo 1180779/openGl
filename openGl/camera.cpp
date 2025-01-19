@@ -18,6 +18,12 @@ void mouseCallback(GLFWwindow* window, double xpos, double ypos)
     currentCamera->m_yaw += xoffset;
     currentCamera->m_pitch += yoffset;
 
+    /* limit pitch */
+    if(currentCamera->m_pitch > 89.0f)
+        currentCamera->m_pitch = 89.0f;
+    if (currentCamera->m_pitch < -89.0f)
+        currentCamera->m_pitch = -89.0f;
+
     currentCamera->m_direction.x = cos(glm::radians(currentCamera->m_yaw)) * cos(glm::radians(currentCamera->m_pitch));
     currentCamera->m_direction.y = sin(glm::radians(currentCamera->m_pitch));
     currentCamera->m_direction.z = sin(glm::radians(currentCamera->m_yaw)) * cos(glm::radians(currentCamera->m_pitch));
@@ -62,11 +68,19 @@ camera& camera::processInput()
     if (glfwGetKey(m_render.window, GLFW_KEY_S) == GLFW_PRESS) {
         m_pos -= speed * m_front;
     }
+
+    if (glfwGetKey(m_render.window, GLFW_KEY_D) == GLFW_PRESS) {
+        m_pos += speed * glm::normalize(glm::cross(m_front, m_up));
+    }
     if (glfwGetKey(m_render.window, GLFW_KEY_A) == GLFW_PRESS) {
         m_pos -= speed * glm::normalize(glm::cross(m_front, m_up));
     }
-    if (glfwGetKey(m_render.window, GLFW_KEY_D) == GLFW_PRESS) {
-        m_pos += speed * glm::normalize(glm::cross(m_front, m_up));
+
+    if (glfwGetKey(m_render.window, GLFW_KEY_Z) == GLFW_PRESS) {
+        m_pos += speed * m_up;
+    }
+    if (glfwGetKey(m_render.window, GLFW_KEY_X) == GLFW_PRESS) {
+        m_pos -= speed * m_up;
     }
     return* this;
 }

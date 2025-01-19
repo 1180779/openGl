@@ -29,6 +29,9 @@
     <Filter Include="source\objects\camera">
       <UniqueIdentifier>{7e573c77-643b-4f3b-bc67-74494f9ce982}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\objects\light">
+      <UniqueIdentifier>{b3a34610-80f1-41b8-90c8-4a98598363ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imGui\imgui_impl_opengl3_loader.h">
@@ -70,12 +73,6 @@
     <ClInclude Include="objectShape.hpp">
       <Filter>source\objects\shapes</Filter>
     </ClInclude>
-    <ClInclude Include="rectangleShape.hpp">
-      <Filter>source\objects\shapes</Filter>
-    </ClInclude>
-    <ClInclude Include="triangleShape.hpp">
-      <Filter>source\objects\shapes</Filter>
-    </ClInclude>
     <ClInclude Include="objectList.hpp">
       <Filter>source\objects\lists</Filter>
     </ClInclude>
@@ -93,6 +90,18 @@
     </ClInclude>
     <ClInclude Include="stb_image.h">
       <Filter>source\rendering\global</Filter>
+    </ClInclude>
+    <ClInclude Include="lightSource.hpp">
+      <Filter>source\objects\light</Filter>
+    </ClInclude>
+    <ClInclude Include="material.hpp">
+      <Filter>source\objects\light</Filter>
+    </ClInclude>
+    <ClInclude Include="lightDirectional.hpp">
+      <Filter>source\objects\light</Filter>
+    </ClInclude>
+    <ClInclude Include="lightBase.hpp">
+      <Filter>source\objects\light</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -129,12 +138,6 @@
     <ClCompile Include="objectShape.cpp">
       <Filter>source\objects\shapes</Filter>
     </ClCompile>
-    <ClCompile Include="rectangleShape.cpp">
-      <Filter>source\objects\shapes</Filter>
-    </ClCompile>
-    <ClCompile Include="triangleShape.cpp">
-      <Filter>source\objects\shapes</Filter>
-    </ClCompile>
     <ClCompile Include="objectList.cpp">
       <Filter>source\objects\lists</Filter>
     </ClCompile>
@@ -152,6 +155,18 @@
     </ClCompile>
     <ClCompile Include="texture.cpp">
       <Filter>source\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="lightSource.cpp">
+      <Filter>source\objects\light</Filter>
+    </ClCompile>
+    <ClCompile Include="material.cpp">
+      <Filter>source\objects\light</Filter>
+    </ClCompile>
+    <ClCompile Include="lightDirectional.cpp">
+      <Filter>source\objects\light</Filter>
+    </ClCompile>
+    <ClCompile Include="lightBase.cpp">
+      <Filter>source\objects\light</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

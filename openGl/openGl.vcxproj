@@ -158,7 +158,9 @@
     <ClInclude Include="imGui\imstb_rectpack.h" />
     <ClInclude Include="imGui\imstb_textedit.h" />
     <ClInclude Include="imGui\imstb_truetype.h" />
+    <ClInclude Include="lightBase.hpp" />
     <ClInclude Include="lightSource.hpp" />
+    <ClInclude Include="lightDirectional.hpp" />
     <ClInclude Include="material.hpp" />
     <ClInclude Include="objectShape.hpp" />
     <ClInclude Include="objectList.hpp" />
@@ -172,6 +174,8 @@
   <ItemGroup>
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="cubeShape.cpp" />
+    <ClCompile Include="lightBase.cpp" />
+    <ClCompile Include="lightDirectional.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="imGui\imgui.cpp" />
     <ClCompile Include="imGui\imgui_demo.cpp" />

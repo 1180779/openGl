@@ -1,9 +1,8 @@
+
 #include "lightSource.hpp"
 
 int lightSource::s_count = 0;
 shader* lightSource::s_sh = nullptr;
-
-float lightSource::s_ambient = 0.2f;
 
 static const char* lightVertexShaderS = R"(
 #version 330 core
@@ -32,7 +31,8 @@ void main()
 )";
 
 
-lightSource::lightSource(const glm::vec3& color) : m_shape(color)
+lightSource::lightSource(const glm::vec3& color) 
+    : lightBase(color, color, color), m_shape(color)
 {
     m_shape.m_scale = glm::vec3(0.1f, 0.1f, 0.1f); /* dafault light scale */
     ++s_count;
@@ -42,7 +42,8 @@ lightSource::lightSource(const glm::vec3& color) : m_shape(color)
     s_sh = new shader(lightVertexShaderS, lightFragmentShaderS);
 }
 
-lightSource::lightSource(const lightSource& other) : m_shape(other.color())
+lightSource::lightSource(const lightSource& other) 
+    : m_shape(other.color())
 {
     ++s_count;
 }
@@ -57,20 +58,14 @@ lightSource::~lightSource()
     s_sh = nullptr;
 }
 
-void lightSource::setForShader(shader& sh)
+void lightSource::setForShader(shader& sh) const
 {
-    glm::vec3 c = color();
-    sh.set3f("light.color", c.x, c.y, c.z);
-
+    lightBase::setForShader(sh);
     glm::vec3 p = pos();
     sh.set3f("light.pos", p.x, p.y, p.z);
-
-    sh.set1f("light.ambient", s_ambient);
-    sh.set1f("light.specular", m_specular);
-    sh.set1f("light.diffuse", m_diffuse);
 }
 
-void lightSource::render(camera& cam)
+void lightSource::render(camera& cam) const
 {
     glm::vec3 c = color();
 
