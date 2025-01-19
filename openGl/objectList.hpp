@@ -11,6 +11,8 @@
 #include "camera.hpp"
 #include "lightBase.hpp"
 
+#include "lightManager.hpp"
+
 class objectList 
 {
 public:
@@ -24,7 +26,7 @@ public:
     virtual objectList& rotate(const float angle, const glm::vec3& v);
     virtual objectList& scale(const glm::vec3& v);
 
-    void render(camera& cam, lightBase& light, std::string name = "model");
+    void render(camera& cam, lightManager& lightMan, std::string name = "model");
 
     shader& m_sh;
     std::vector<objectShape*> m_objs;

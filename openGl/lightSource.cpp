@@ -43,7 +43,7 @@ lightSource::lightSource(const glm::vec3& color)
 }
 
 lightSource::lightSource(const lightSource& other) 
-    : m_shape(other.color())
+    : m_shape(other.m_shape)
 {
     ++s_count;
 }

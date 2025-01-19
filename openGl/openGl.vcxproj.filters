@@ -35,6 +35,9 @@
     <Filter Include="source\objects\light\lightTypes">
       <UniqueIdentifier>{31881e34-921a-4b5f-9cc5-fd5f639ad662}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\scene">
+      <UniqueIdentifier>{a533bebe-948a-4232-a683-f48b53e08ea5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imGui\imgui_impl_opengl3_loader.h">
@@ -115,6 +118,9 @@
     <ClInclude Include="lightManager.hpp">
       <Filter>source\objects\light</Filter>
     </ClInclude>
+    <ClInclude Include="scene.hpp">
+      <Filter>source\scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imGui\imgui_tables.cpp">
@@ -188,6 +194,9 @@
     </ClCompile>
     <ClCompile Include="lightManager.cpp">
       <Filter>source\objects\light</Filter>
+    </ClCompile>
+    <ClCompile Include="scene.cpp">
+      <Filter>source\scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

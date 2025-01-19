@@ -12,6 +12,12 @@
 class objectShape
 {
 public:
+    objectShape() { }
+    objectShape(const objectShape& other)
+        : m_pos(other.m_pos), m_scale(other.m_scale),
+        m_pitch(other.m_pitch), m_yaw(other.m_yaw), m_roll(other.m_roll),
+        m_material(other.m_material) { }
+
     virtual void render(shader& sh) const;
 
     glm::mat4 model() const; /* model matrix */

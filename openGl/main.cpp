@@ -14,6 +14,9 @@
 #include "lightSpotlight.hpp"
 
 #include "cubeShape.hpp"
+#include "lightManager.hpp"
+
+#include "scene.hpp"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -27,13 +30,12 @@ int main(int, char**)
     render.initGL();
     glEnable(GL_DEPTH_TEST);
 
-    shader sh(vertexSS, fragmentSSpotlightS);
+    shader sh(vertexSS, fragmentSSCombined);
     objectList list(sh);
 
-    lightSpotlight lightPoint;
-    lightPoint.setPos(glm::vec3(0.0f, 0.0f, 3.0f));
-    lightPoint.m_direction = glm::vec3(0.0f, 0.0f, -1.0f);
-    lightBase& light = lightPoint;
+    lightManager lightMan;
+    addLights(lightMan);
+
     //light.setPos(glm::vec3(-5.0f, 3.0f, -7.5f));
 
     glm::vec3 cubePositions[10] = {
@@ -94,8 +96,8 @@ int main(int, char**)
         render.clearColor();
         glClear(GL_DEPTH_BUFFER_BIT);
 
-        list.render(cam, light);
-        light.render(cam);
+        list.render(cam, lightMan);
+        lightMan.render(cam);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         render.swapBuffers();
     }
