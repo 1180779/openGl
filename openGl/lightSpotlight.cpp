@@ -1,10 +1,10 @@
 
 #include "lightSpotlight.hpp"
 
-void lightSpotlight::setForShader(shader& sh) const
+void lightSpotlight::setForShader(shader& sh, const std::string& structShName) const
 {
-    lightSource::setForShader(sh);
-    sh.set3f("light.direction", -m_direction);
-    sh.set1f("light.cutoff", glm::cos(glm::radians(m_cutoff)));
-    sh.set1f("light.outerCutoff", glm::cos(glm::radians(m_outerCutoff)));
+    lightSource::setForShader(sh, structShName);
+    sh.set3f(structShName + ".direction", -m_direction);
+    sh.set1f(structShName + ".cutoff", glm::cos(glm::radians(m_cutoff)));
+    sh.set1f(structShName + ".outerCutoff", glm::cos(glm::radians(m_outerCutoff)));
 }

@@ -1,9 +1,9 @@
 #include "lightPoint.hpp"
 
-void lightPoint::setForShader(shader& sh) const
+void lightPoint::setForShader(shader& sh, const std::string& structShName) const
 {
-    lightSource::setForShader(sh);
-    sh.set1f("light.constant", m_constant);
-    sh.set1f("light.linear", m_linear);
-    sh.set1f("light.quadratic", m_quadratic);
+    lightSource::setForShader(sh, structShName);
+    sh.set1f(structShName + ".constant", m_constant);
+    sh.set1f(structShName + ".linear", m_linear);
+    sh.set1f(structShName + ".quadratic", m_quadratic);
 }

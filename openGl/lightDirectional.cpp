@@ -1,8 +1,8 @@
 #include "lightDirectional.hpp"
 
-void lightDirectional::setForShader(shader& sh) const
+void lightDirectional::setForShader(shader& sh, const std::string& structShName) const
 {
-    lightBase::setForShader(sh);
-    sh.set3f("light.direction", -m_direction);
+    lightBase::setForShader(sh, structShName);
+    sh.set3f(structShName + ".direction", -m_direction);
 }
 

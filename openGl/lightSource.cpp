@@ -58,11 +58,11 @@ lightSource::~lightSource()
     s_sh = nullptr;
 }
 
-void lightSource::setForShader(shader& sh) const
+void lightSource::setForShader(shader& sh, const std::string& structShName) const
 {
-    lightBase::setForShader(sh);
+    lightBase::setForShader(sh, structShName);
     glm::vec3 p = pos();
-    sh.set3f("light.pos", p.x, p.y, p.z);
+    sh.set3f(structShName + ".pos", p.x, p.y, p.z);
 }
 
 void lightSource::render(camera& cam) const

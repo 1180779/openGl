@@ -38,7 +38,7 @@ objectList& objectList::scale(const glm::vec3& v)
 void objectList::render(camera& cam, lightBase& light, std::string modelName)
 {
     cam.use(m_sh);
-    light.setForShader(m_sh);
+    light.setForShader(m_sh, "light");
     for (int i = 0; i < m_objs.size(); ++i) {
         m_sh.setMatrix4fv(modelName, m_trans * m_objs[i]->model());
         m_objs[i]->render(m_sh);

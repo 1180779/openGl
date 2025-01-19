@@ -13,7 +13,7 @@ public:
     float m_cutoff = 12.5f;
     float m_outerCutoff = 25.0f;
 
-    void setForShader(shader& sh) const override;
+    void setForShader(shader& sh, const std::string& structShName) const override;
 };
 
 #endif

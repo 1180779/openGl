@@ -15,7 +15,7 @@ public:
     float m_linear = 0.09f;
     float m_quadratic = 0.032f;
 
-    void setForShader(shader& sh) const override;
+    void setForShader(shader& sh, const std::string& structShName) const override;
     void render(camera& cam) const override { } /* render is empty */
 };
 

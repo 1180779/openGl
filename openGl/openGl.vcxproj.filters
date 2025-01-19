@@ -32,6 +32,9 @@
     <Filter Include="source\objects\light">
       <UniqueIdentifier>{b3a34610-80f1-41b8-90c8-4a98598363ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\objects\light\lightTypes">
+      <UniqueIdentifier>{31881e34-921a-4b5f-9cc5-fd5f639ad662}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imGui\imgui_impl_opengl3_loader.h">
@@ -91,22 +94,25 @@
     <ClInclude Include="stb_image.h">
       <Filter>source\rendering\global</Filter>
     </ClInclude>
-    <ClInclude Include="lightSource.hpp">
-      <Filter>source\objects\light</Filter>
-    </ClInclude>
-    <ClInclude Include="material.hpp">
-      <Filter>source\objects\light</Filter>
-    </ClInclude>
     <ClInclude Include="lightBase.hpp">
-      <Filter>source\objects\light</Filter>
-    </ClInclude>
-    <ClInclude Include="lightPoint.hpp">
-      <Filter>source\objects\light</Filter>
+      <Filter>source\objects\light\lightTypes</Filter>
     </ClInclude>
     <ClInclude Include="lightDirectional.hpp">
-      <Filter>source\objects\light</Filter>
+      <Filter>source\objects\light\lightTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="lightPoint.hpp">
+      <Filter>source\objects\light\lightTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="lightSource.hpp">
+      <Filter>source\objects\light\lightTypes</Filter>
     </ClInclude>
     <ClInclude Include="lightSpotlight.hpp">
+      <Filter>source\objects\light\lightTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="material.hpp">
+      <Filter>source\objects\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="lightManager.hpp">
       <Filter>source\objects\light</Filter>
     </ClInclude>
   </ItemGroup>
@@ -162,22 +168,25 @@
     <ClCompile Include="texture.cpp">
       <Filter>source\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="lightSource.cpp">
-      <Filter>source\objects\light</Filter>
-    </ClCompile>
-    <ClCompile Include="material.cpp">
-      <Filter>source\objects\light</Filter>
+    <ClCompile Include="lightBase.cpp">
+      <Filter>source\objects\light\lightTypes</Filter>
     </ClCompile>
     <ClCompile Include="lightDirectional.cpp">
-      <Filter>source\objects\light</Filter>
-    </ClCompile>
-    <ClCompile Include="lightBase.cpp">
-      <Filter>source\objects\light</Filter>
+      <Filter>source\objects\light\lightTypes</Filter>
     </ClCompile>
     <ClCompile Include="lightPoint.cpp">
-      <Filter>source\objects\light</Filter>
+      <Filter>source\objects\light\lightTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="lightSource.cpp">
+      <Filter>source\objects\light\lightTypes</Filter>
     </ClCompile>
     <ClCompile Include="lightSpotlight.cpp">
+      <Filter>source\objects\light\lightTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="material.cpp">
+      <Filter>source\objects\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="lightManager.cpp">
       <Filter>source\objects\light</Filter>
     </ClCompile>
   </ItemGroup>

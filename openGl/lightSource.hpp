@@ -14,7 +14,7 @@ public:
     lightSource(const lightSource& other);
     ~lightSource();
 
-    void setForShader(shader& sh) const override;
+    void setForShader(shader& sh, const std::string& structShName) const override;
     void render(camera& cam) const override;
     
     inline glm::vec3 color() const { return m_shape.m_color; }
