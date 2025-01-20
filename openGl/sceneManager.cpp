@@ -3,6 +3,12 @@
 
 void sceneManager::addObjects()
 {
+    cameraMan.addCamera(camera());
+    camera c;
+    c.pos = glm::vec3(10.0f, 10.0f, 10.0f);
+    cameraMan.addCamera(c);
+    cameraMan.nextCamera();
+
     glm::vec3 cubePositions[10] = {
         glm::vec3(0.0f,  0.0f,  0.0f),
         glm::vec3(2.0f,  5.0f, -15.0f),
@@ -44,6 +50,7 @@ void sceneManager::addObjects()
 
 void sceneManager::render() const
 {
+    const camera& cam = cameraMan.getCamera();
     list.render(cam, lightMan);
     lightMan.render(cam);
 }

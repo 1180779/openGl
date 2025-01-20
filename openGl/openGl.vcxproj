@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="application.hpp" />
     <ClInclude Include="camera.hpp" />
+    <ClInclude Include="cameraManager.hpp" />
     <ClInclude Include="cameraView.hpp" />
     <ClInclude Include="cubeShape.hpp" />
     <ClInclude Include="dataTypes.hpp" />
@@ -186,6 +187,7 @@
   <ItemGroup>
     <ClCompile Include="application.cpp" />
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="cameraManager.cpp" />
     <ClCompile Include="cameraView.cpp" />
     <ClCompile Include="cubeShape.cpp" />
     <ClCompile Include="deltaTime.cpp" />

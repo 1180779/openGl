@@ -25,13 +25,14 @@ void sceneView::ui()
 {
     currentSubView->ui();
 
-    ImGui::SetNextWindowSize(ImVec2(300, 80));
+    ImGui::SetNextWindowSize(ImVec2(300, 120));
     ImGui::Begin("Camera pos", NULL, ImGuiWindowFlags_NoResize);
 
     ImGui::SetNextItemWidth(150);
 
     if (currentCamera)
     {
+        ImGui::Text("index: %d", scene.cameraMan.getIndex());
         ImGui::Text("x = %5.2f", currentCamera->getPos().x);
         ImGui::Text("y = %5.2f", currentCamera->getPos().y);
         ImGui::Text("z = %5.2f", currentCamera->getPos().z);

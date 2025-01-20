@@ -94,9 +94,6 @@
     <ClInclude Include="objectList.hpp">
       <Filter>source\views\sceneView\scene\lists</Filter>
     </ClInclude>
-    <ClInclude Include="camera.hpp">
-      <Filter>source\views\sceneView\scene\camera</Filter>
-    </ClInclude>
     <ClInclude Include="texture.hpp">
       <Filter>source\rendering</Filter>
     </ClInclude>
@@ -156,6 +153,12 @@
     </ClInclude>
     <ClInclude Include="subView.hpp">
       <Filter>source\views</Filter>
+    </ClInclude>
+    <ClInclude Include="cameraManager.hpp">
+      <Filter>source\views\sceneView\scene\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.hpp">
+      <Filter>source\views\sceneView\scene\camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +248,9 @@
     </ClCompile>
     <ClCompile Include="sceneManager.cpp">
       <Filter>source\views\sceneView\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="cameraManager.cpp">
+      <Filter>source\views\sceneView\scene\camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

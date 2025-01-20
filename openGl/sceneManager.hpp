@@ -8,6 +8,7 @@
 #include "objectList.hpp"
 #include "camera.hpp"
 #include "lightManager.hpp"
+#include "cameraManager.hpp"
 
 class sceneManager 
 {
@@ -17,8 +18,8 @@ public:
 
     shader sh = shader(vertexSS, fragmentSSCombined);
     objectList list = objectList(sh);
-    camera cam;
     lightManager lightMan;
+    cameraManager cameraMan;
 };
 
 #endif

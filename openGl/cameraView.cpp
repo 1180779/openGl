@@ -6,17 +6,26 @@
 
 void cameraView::handleInput()
 {
-    m_parent.scene.cam.processInput(
+    m_parent.scene.cameraMan.getCamera().processInput(
         m_parent.app.window.handle, m_parent.app.deltaTime());
     if (glfwGetKey(m_parent.app.window.handle, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         m_parent.changeSubView(sceneView::subView::ui);
         return;
     }
+    if(glfwGetKey(m_parent.app.window.handle, GLFW_KEY_N) == GLFW_PRESS && !m_nDown) 
+    {
+        m_nDown = true;
+        m_parent.scene.cameraMan.nextCamera();
+    }
+    else if(glfwGetKey(m_parent.app.window.handle, GLFW_KEY_N) == GLFW_RELEASE) 
+    {
+        m_nDown = false;
+    }
 }
 
 void cameraView::onEnter()
 {
-    m_parent.scene.cam.setCurrent();
+    m_parent.scene.cameraMan.getCamera().setCurrent();
     glfwSetInputMode(m_parent.app.window.handle, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glfwSetCursorPosCallback(m_parent.app.window.handle, mouseCallback);
     glfwSetScrollCallback(m_parent.app.window.handle, scrollCallback);

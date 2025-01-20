@@ -19,6 +19,9 @@ public:
     void render() const override;
     void onExit() override;
     ~cameraView() override { }
+
+private:
+    bool m_nDown = false;
 };
 
 #endif
